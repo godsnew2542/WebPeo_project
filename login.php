@@ -1,12 +1,10 @@
 <html>
     <h1>Login</h1>
 
-<form action="infomation.php" method="post">
-<?php $connect = mysqli_connect("localhost", "root", "", "airplane"); 
-?>
-Email <input name="FName" type="text"> <br> <br>
-Password <input name="LName" type="text"> <br> <br>
-<input type="submit" value="Login" name="submit">
-<button><a href="register.php">Register</a></button>
+<form action="login2.php" method="post">
+Email: <input type="email" name="email" placeholder="Email"> <br> <br>
+Password: <input type="password" name="pass" placeholder="Password"> <br> <br>
+<button type="submit" name="Login">LOGIN</button> <br>
+Don't have an account?<a href="register.php">Sign up now.</a>
 </form>
 </html>
