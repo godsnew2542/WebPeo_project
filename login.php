@@ -8,10 +8,6 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        .item {
-            border: 1px solid red;
-        }
-
         .pull-left {
             float: left;
         }
@@ -29,17 +25,23 @@
 <body>
     <form action="login2.php" method="post">
         <div class="row">
-            <div class="col-md-4 item"> </div>
-            <div class="col-md-4 item">
+            <div class="col-md-4"> </div>
+            <div class="col-md-4">
+                <br>
+                <br>
+                <br>
                 <h1 class="text-center"> <b>Login To Airline</b> </h1>
+                <br>
+                <br>
+                <br>
                 Email: <br>
                 <input type="email" name="email" placeholder="EMAIL" required> <br> <br>
                 Password: <br>
                 <input type="password" name="pass" placeholder="PASSWORD" required> <br> <br>
-                <button type="submit" name="Login">LOGIN</button> <br>
+                <button type="submit" name="Login">LOGIN</button> <br> <br>
                 Don't have an account? <a href="register.php">Sign up now.</a>
             </div>
-            <div class="col-md-4 item"> </div>
+            <div class="col-md-4"> </div>
         </div>
     </form>
 </body>
