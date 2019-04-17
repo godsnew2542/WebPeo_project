@@ -51,6 +51,16 @@
                 <br />Click here to <a href='login.php'>Login.</a>
             </div>
         <?php
+    } else {
+        //มีข้อผิดพลาดในข้อมูลที่คุณป้อน
+        //กรุณาตรวจสอบข้อมูลให้ถูกต้อง
+        ?>
+            <div class="text-center fond">
+                <b>There was an error in the data that you entered.</b>
+                <br> <b>Please check the information correctly.</b>
+                <br>Click here to <a href='register.php'>Register.</a>
+            </div>
+        <?php
     }
 } else {
     ?>
@@ -59,9 +69,6 @@
                 <div class="col-md-4"> </div>
                 <div class="col-md-4">
                     <h1 class="text-center"> <b>Register To Airline</b> </h1>
-                    <?php
-                    $connect = mysqli_connect("localhost", "root", "", "airplane");
-                    ?>
                     FirstName: <br>
                     <input name="FName" type="text" placeholder="FIRSTNAME" required> <br> <br>
                     LastName: <br>
@@ -72,7 +79,8 @@
                     <input name="pass" type="password" placeholder="PASSWORD" required> <br> <br>
                     Phone: <br>
                     <input name="phone" type="text" placeholder="0981234567" required pattern="(\d{10})"> <br> <br>
-                    Id Card: <br>
+                    Id Card: <br> <?php //เป็น พายมะรีคีย์ ซึ่งถ้าใส่ซ่ำจะ เกิดข้อผิดพาดไม่เข้า ดาต้าเบส
+                                    ?>
                     <input name="id_card" type="text" placeholder="1-1234-12345-12-1" required pattern="(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})"> <br> <br>
                     <input type="submit" name="submit" value="Register">
                     <input type="reset" value="Cancel">
