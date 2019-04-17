@@ -41,8 +41,8 @@
         $id_card = stripslashes($_REQUEST['id_card']);
         $id_card = mysqli_real_escape_string($con, $id_card);
 
-        $query = "INSERT into users (FirstName, LastName, Email, password, Phone, id_card )
-            VALUES ('$FName', '$LName', '$email', '$password', '$Phone', '$id_card')";
+        $query = "INSERT into user (NID, Uname, Lname, Email, Passwd, Telephone )
+            VALUES ('$id_card', '$FName', '$LName', '$email', '$password', '$Phone')";
         $result = mysqli_query($con, $query);
         if ($result) {
             ?>
