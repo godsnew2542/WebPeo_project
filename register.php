@@ -82,7 +82,7 @@
                     Id Card: <br> <?php //เป็น พายมะรีคีย์ ซึ่งถ้าใส่ซ่ำจะ เกิดข้อผิดพาดไม่เข้า ดาต้าเบส
                                     ?>
                     <input name="id_card" type="text" placeholder="1-1234-12345-12-1" required pattern="(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})"> <br> <br>
-                    <input type="submit" name="submit" value="Register">
+                    <input type="submit" name="submit">
                     <input type="reset" value="Cancel">
                     <p>Go to <a href='login.php'>Login.</a></p>
                 </div>

@@ -25,7 +25,7 @@
 		$result = mysqli_query($con, $query);
 
 		if ($record = mysqli_fetch_array($result, MYSQLI_BOTH)) {
-			$_SESSION['User'] = $record['Uname'];
+			$_SESSION['User'] = $record['Uname'].'&nbsp'.'&nbsp'.$record['Lname'];
 			header("location:infomation.php");
 		} else {
 			?>
