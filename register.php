@@ -16,6 +16,37 @@
             font-size: 50px;
         }
     </style>
+    <script language="javascript">
+        function check() {
+            if (document.registration.FName.value == "") {
+                alert('กรุณา กรุณากรอกข้อมูล 1 ');
+                return false;
+            } else if (document.registration.LName.value == "") {
+                alert('กรุณา กรุณากรอกข้อมูล 2 ');
+                return false;
+            } else if (document.registration.email.value == "" && email == type("email")) {
+                alert('กรุณา กรุณากรอกข้อมูล 3 ');
+                return false;
+            } else if (document.registration.password.value == "") {
+                alert('กรุณา กรุณากรอกข้อมูล 4 ');
+                return false;
+            } else if (document.registration.phone.value == "" && phone == pattern("(\d{10})")) {
+                alert('กรุณา กรุณากรอกข้อมูล 5 ');
+                return false;
+            } else if (document.registration.card.value == "" && caed == pattern("(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})")) {
+                alert('กรุณา กรุณากรอกข้อมูล 6 ');
+                return false;
+            }
+            if (!(document.registration.FName.value == "" &&
+                    document.registration.LName.value == "" &&
+                    document.registration.email.value == "" &&
+                    document.registration.password.value == "" &&
+                    document.registration.phone.value == "" &&
+                    document.registration.card.value == "")) {
+                return confirm('คุณแน่ใจแล้วใช่ไหม1');
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -51,9 +82,7 @@
                 <br />Click here to <a href='login.php'>Login.</a>
             </div>
         <?php
-    } else {
-        //มีข้อผิดพลาดในข้อมูลที่คุณป้อน
-        //กรุณาตรวจสอบข้อมูลให้ถูกต้อง
+    } else { //มีข้อผิดพลาดในข้อมูลที่คุณป้อน //กรุณาตรวจสอบข้อมูลให้ถูกต้อง
         ?>
             <div class="text-center fond">
                 <b>There was an error in the data that you entered.</b>
@@ -66,31 +95,33 @@
     ?>
         <form name="registration" action="" method="post">
             <div class="row">
-                <div class="col-md-4"> </div>
-                <div class="col-md-4">
+                <div class="col-md-3"> </div>
+                <div class="col-md-6">
                     <h1 class="text-center"> <b>Register To Airline</b> </h1>
                     FirstName: <br>
-                    <input name="FName" type="text" placeholder="FIRSTNAME" required> <br> <br>
+                    <input name="FName" type="text" id="FName" class="form-control  col-md-6" placeholder="FIRSTNAME" required> <br>
                     LastName: <br>
-                    <input name="LName" type="text" placeholder="LASTNAME" required> <br> <br>
+                    <input name="LName" type="text" id="LName" class="form-control col-md-6" placeholder="LASTNAME" required> <br>
                     Email: <br>
-                    <input name="email" type="email" placeholder="EMAIL" required> <br> <br>
+                    <input name="email" type="email" id="email" class="form-control col-md-6" placeholder="EMAIL" required> <br>
                     Passwoed: <br>
-                    <input name="pass" type="password" placeholder="PASSWORD" required> <br> <br>
+                    <input name="pass" type="password" id="password" class="form-control col-md-6" placeholder="PASSWORD" required> <br>
                     Phone: <br>
-                    <input name="phone" type="text" placeholder="0981234567" required pattern="(\d{10})"> <br> <br>
+                    <input name="phone" type="text" id="phone" class="form-control col-md-6" placeholder="0981234567" pattern="(\d{10})" required> <br>
                     Id Card: <br> <?php //เป็น พายมะรีคีย์ ซึ่งถ้าใส่ซ่ำจะ เกิดข้อผิดพาดไม่เข้า ดาต้าเบส
                                     ?>
-                    <input name="id_card" type="text" placeholder="1-1234-12345-12-1" required pattern="(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})"> <br> <br>
-                    <input type="submit" name="submit">
-                    <input type="reset" value="Cancel">
+                    <input name="id_card" type="text" id="card" class="form-control col-md-6" class="mainform form-control" placeholder="1-1234-12345-12-1" pattern="(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})" required> <br>
+                    <input type="submit" name="submit" value="Register" onclick="return check();">
+                    <input type="reset" value="Cancel"> <br> <br>
                     <p>Go to <a href='login.php'>Login.</a></p>
                 </div>
-                <div class="col-md-4"> </div>
+                <div class="col-md-3"> </div>
             </div>
         </form>
-
-    <?php } ?>
+    <?php
+}
+mysqli_close($con);
+?>
 </body>
 
 </html>
