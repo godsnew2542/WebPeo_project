@@ -63,13 +63,13 @@
         $FName = stripslashes(test_input($_REQUEST['FName']));
         $FName = mysqli_real_escape_string($con, $FName);
 
-        $LName = stripslashes($_REQUEST['LName']);
+        $LName = stripslashes(test_input($_REQUEST['LName']));
         $LName = mysqli_real_escape_string($con, $LName);
 
-        $email = stripslashes($_REQUEST['email']);
+        $email = stripslashes(test_input($_REQUEST['email']));
         $email = mysqli_real_escape_string($con, $email);
 
-        $password = stripslashes($_REQUEST['pass']);
+        $password = stripslashes(test_input($_REQUEST['pass']));
         $password = mysqli_real_escape_string($con, $password);
 
         $Phone = stripslashes($_REQUEST['phone']);
