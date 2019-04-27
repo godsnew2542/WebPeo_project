@@ -22,7 +22,6 @@
   session_start();
 
   if (isset($_SESSION['User'])) {
-
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">
@@ -32,14 +31,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-          <a class="nav-item nav-link px-5 small" href="#">
-            <?php echo '<a href="logout.php?logout">Logout</a>'; ?> </a>
+        <?php echo '<a href="#">History</a>'; ?>
+          <?php echo '<a href="History.php">History</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+          <?php echo '<a href="logout.php">Logout</a>'; ?>
         </div>
       </div>
     </nav>
     <br> <br>
-    <form name="registration" action="" method="post">
-      <h1>Infomation</h1>
+    <form name="registration" action="Flight.php" method="post">
+      <h1>Homepage</h1>
       Flight From <select name="Flight_From">
         <?php
         $sql = 'SELECT FlightFrom FROM flight';
@@ -91,7 +91,6 @@
                           ?>
       ผู้ใหญ่ : <input name="Adult" type="text" placeholder="3" required pattern="[\d0-9]{1}"> <br>
       เด็ก : <input name="child" type="text" placeholder="4" required pattern="[\d0-9]{1}"> <br>
-      ทารก : <input name="Baby" type="text" placeholder="2" required pattern="[\d0-9]{1}"> <br><br>
       วันออกเดินทาง
       <input class="datepicker" width="200" placeholder="04/18/2019" required>
       <script>
@@ -99,27 +98,7 @@
           uiLibrary: 'bootstrap4'
         });
       </script>
-      <input type="checkbox" name="goback"> ไปกลับ<br>
-      <input id="datepicker" width="200" placeholder="04/18/2019" required>
-      <script>
-        $('#datepicker').datepicker({
-          uiLibrary: 'bootstrap4'
-        });
-      </script>
       <button type="submit" name="net">net</button> <br> <br>
-      <?php
-      if (isset($_REQUEST['Adult'])) {
-        $_SESSION['ad'] = $_REQUEST['Adult'];
-        $_SESSION['ch'] = $_REQUEST['Baby'];
-
-        if ($_SESSION['ad'] >= $_SESSION['ch']) {
-
-          header("location:testdata.php");
-        } else if ($_SESSION['ad'] <= $_SESSION['ch']) {
-          header("location:infomationError.php");
-        }
-      }
-      ?>
     </form>
   <?php
 } else {
