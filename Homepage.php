@@ -45,8 +45,7 @@
         </div>
       </div>
     </nav>
-    <br> <br>
-    <form name="registration" action="Flight.php" method="post">
+    <form name="registration" action="flight.php" method="post">
       <h1>Homepage</h1>
       
       <!-- ตกแต่ง -->
@@ -102,7 +101,7 @@
       <br><br>
 
 
-      จำนวนผู้โดยสาร <br> 
+      <!-- จำนวนผู้โดยสาร <br> 
       <?php //ห้ามเกิน9 คน ?>
                           
       ผู้ใหญ่ : <input name="Adult" type="text" placeholder="" required pattern="[\d0-9]{1}"> <br>
@@ -114,9 +113,10 @@
         $('.datepicker').datepicker({
           uiLibrary: 'bootstrap3'
         });
-      </script>
+      </script> -->
 
-<!-- TGทำต่อ -->ชั้นที่นั่ง
+<!-- TGทำต่อ
+        ชั้นที่นั่ง
       <select name="class">
         <option value="" selected>-------</option>
         <option value="economy">Economy</option>
@@ -129,7 +129,7 @@
 
        <label for="RFname">นามสกุลผู้จอง</label>
        <input type="text" name="RLname">
-       <br>
+       <br> -->
 
       <button type="submit" name="Search">Search</button> <br> <br>
 
