@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2019 at 04:35 PM
+-- Generation Time: Apr 27, 2019 at 11:14 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -92,7 +92,7 @@ INSERT INTO `flight` (`FlightNo`, `AID`, `Type`, `FlightFrom`, `FlightTo`, `Dist
 ('TG114', 'HS-TGA', 'BOEING', 'กรุงเทพฯ', 'เชียงใหม่', '687.8', '09:30:00', '10:45:00', 1350, 2240),
 ('TG115', 'HS-TGF', 'BOEING', 'ภูเก็ต', 'นครศรีธรรมราช', '296.1', '21:20:00', '22:30:00', 1420, 3580),
 ('TG116', 'HS-TGG', 'BOEING', 'สุราษฎร์', 'ขอนแก่น', '1080.1', '11:15:00', '16:15:00', 3124, 5035),
-('TG117', 'HS-TGW', 'BOEING', 'ตราด', 'เกาะสมุย', '1061.3', '17:30:00', '19:05:00', 3112, 5345),
+('TG117', 'HS-TGW', 'BOEING', 'ตราด', 'เกาะสมุย', '1061.3', '17:30:00', '19:05:00', 4120, 6250),
 ('TG118', 'HS-TGX', 'BOEING', 'เชียงราย', 'ภูเก็ต', '1617.4', '16:00:00', '19:05:00', 4491, 6625),
 ('TG119', 'HS-TBA', 'AIRBUS', 'เชียงใหม่', 'แม่ฮ่องสอน', '250.8', '20:45:00', '22:00:00', 2049, 5520),
 ('TG120', 'HS-TBB', 'AIRBUS', 'ตรัง', 'กรุงเทพ', '837.1', '14:15:00', '15:40:00', 2442, 4455);
@@ -104,7 +104,10 @@ INSERT INTO `flight` (`FlightNo`, `AID`, `Type`, `FlightFrom`, `FlightTo`, `Dist
 --
 
 CREATE TABLE `reserve_flight` (
-  `NID` varchar(17) NOT NULL,
+  `RID` int(11) NOT NULL,
+  `User_ID` int(5) NOT NULL,
+  `RFname` varchar(50) NOT NULL,
+  `RLname` varchar(50) NOT NULL,
   `Class` varchar(20) NOT NULL,
   `Price` varchar(20) NOT NULL,
   `Date_reserve` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -118,6 +121,7 @@ CREATE TABLE `reserve_flight` (
 --
 
 CREATE TABLE `user` (
+  `User_ID` int(5) NOT NULL,
   `NID` varchar(17) NOT NULL,
   `Uname` varchar(50) NOT NULL,
   `Lname` varchar(50) NOT NULL,
@@ -143,10 +147,32 @@ ALTER TABLE `flight`
   ADD PRIMARY KEY (`FlightNo`);
 
 --
+-- Indexes for table `reserve_flight`
+--
+ALTER TABLE `reserve_flight`
+  ADD PRIMARY KEY (`RID`,`User_ID`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`NID`);
+  ADD PRIMARY KEY (`User_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `reserve_flight`
+--
+ALTER TABLE `reserve_flight`
+  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `User_ID` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

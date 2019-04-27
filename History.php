@@ -29,13 +29,26 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-          <?php echo '<a href="infomation.php">Homepage</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
-          <?php echo '<a href="logout.php">Logout</a>'; ?>
+          <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+          <?php echo '<a href="#">History</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+          <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div>
     </nav>
     <h1>History</h1>
     <?php
+    $sql = "select * from reserve_flight where User_ID = '".$_SESSION['User_ID']."' ";
+    $result = mysqli_query($connect, $sql);
+    if (!$result) {
+      echo mysql_error() . '<br>';
+      die('Can not access database!');
+    } else {
+      while ($row = mysqli_fetch_assoc($result)) {
+        while (list($key, $value) = each($row)) {
+          echo $value;
+        }
+      }
+    }
 } else {
   header("location:login.php");
 }
