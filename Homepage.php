@@ -31,9 +31,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-        <?php echo '<a href="#">History</a>'; ?>
+          <?php echo '<a href="#">Homepage</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
           <?php echo '<a href="History.php">History</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
-          <?php echo '<a href="logout.php">Logout</a>'; ?>
+          <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div>
     </nav>

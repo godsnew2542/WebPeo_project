@@ -46,7 +46,8 @@
 
         if ($record = mysqli_fetch_array($result, MYSQLI_BOTH)) {
             $_SESSION['User'] = $record['Uname'] . '&nbsp' . '&nbsp' . $record['Lname'];
-            header("location:infomation.php");
+            $_SESSION['User_ID'] = $record['User_ID'];
+            header("location:Homepage.php");
         } else {
             ?>
                 <div class="text-center1">
