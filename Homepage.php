@@ -78,6 +78,7 @@
           echo mysql_error() . '<br>';
           die('Can not access database!');
         } else {
+          echo '<option value="" selected>----</option>';
           while ($row = mysqli_fetch_assoc($result_1)) {
             echo '<option value=';
             while (list($key, $value) = each($row)) {
