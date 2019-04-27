@@ -21,25 +21,25 @@
 
   if (isset($_SESSION['User'])) {
     ?>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#"><?php echo'&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
-    </div>
-    <div class="collapse navbar-collapse " id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="Homepage.php">Homepage</a></li>
-        <li><a href="#">History</a></li>
-        <li><a href="#logout.php?logout">Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><?php echo '&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
+        </div>
+        <div class="collapse navbar-collapse " id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="Homepage.php">Homepage</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="logout.php?logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <h1>History</h1>
     <?php
     $sql = "select * from reserve_flight where User_ID = '" . $_SESSION['User_ID'] . "' ";
@@ -48,13 +48,15 @@
       echo mysql_error() . '<br>';
       die('Can not access database!');
     } else {
-      
-    while ($row = mysqli_fetch_array($result,MYSQLI_MUN)) {
-      echo 'FirstName: "'.$row['Room_id'].'" ';
-      //   while (list($key, $value) = each($row)) {
-      //     echo $value;
-      //   }
-       }
+
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo 'FirstName: '. $row['RFname'] .'<br>';
+        echo 'LastName: '.$row['RLname'].'<br>';
+        echo 'Class: '.$row['Class'].'<br>';
+        echo 'Price: '.$row['Price'].'<br>';
+        echo 'Date reserve: '.$row['Date_reserve'].'<br>';
+        echo 'Trv date: '.$row['Trv_date'].'<br>';
+      }
     }
   } else {
     header("location:login.php");
