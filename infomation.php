@@ -38,7 +38,7 @@
     <br> <br>
     <form name="registration" action="" method="post">
       <h1>Infomation</h1>
-      FlightFrom <select>
+      Flight From <select>
         <option value="ff101">กรุงเทพฯ</option>
         <option value="ff102">ภูเก็ต</option>
         <option value="ff103">สุราษฎร์</option>
@@ -54,7 +54,7 @@
         <option value="ff112">อุดรธานี</option>
         <option value="ff113">ขอนแก่น</option>
       </select> <br><br>
-      FlightTo <select>
+      Flight To <select>
         <option value="ft101">เชียงใหม่</option>
         <option value="ft102">นครศรีธรรมราช</option>
         <option value="ft103">ขอนแก่น</option>
