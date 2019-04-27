@@ -46,7 +46,6 @@
         $sql = 'select * from flight where FlightFrom = "' . $_POST['Flight_From'] . '" and 
                                            FlightTo = "' . $_POST['Flight_To'] . '";';
 
-
         $result = mysqli_query($connect, $sql);
 
         if (!$result) {
@@ -54,7 +53,7 @@
             echo mysql_error() . '<br>';
             die('Can not access database!');
             
-        }else if(mysqli_num_rows($result) == ''){
+        }else if(mysqli_num_rows($result) == 0){
 
             echo 'No Flight Needed';
             echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
@@ -73,12 +72,13 @@
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo 'Arrive : '.$row['Arrive'];
                     echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
+                    $_SESSION['class'] = "economy";
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';
 
                 }else if($_POST['class'] == "business"){
-
+                    
                     echo 'Flight From: ' . $row['FlightFrom'] ;
                     echo 'Flight To: ' . $row['FlightTo'];
                     echo 'Price : '.$row['Business_Price'];
@@ -87,10 +87,14 @@
                     echo 'Depart : '.$row['Depart'];
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo 'Arrive : '.$row['Arrive'];
-                    echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
+                    echo '<input type="hidden" name="Flight1" value="'.$row['FlightNo'].'">' ;
+                    $_SESSION['class'] = "business";
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';
+                }else{
+                    echo "กรุณาเลือกชั่นที่นั้งของคุณ <br>";
+                    echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
                 }
                
             }

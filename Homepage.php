@@ -58,7 +58,7 @@
           echo mysql_error() . '<br>';
           die('Can not access database!');
         } else {
-          echo '<option value="" selected>----</option>';
+          echo '<option value="0" selected>----</option>';
 
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<option value=';
@@ -84,7 +84,7 @@
           echo mysql_error() . '<br>';
           die('Can not access database!');
         } else {
-          echo '<option value="" selected>----</option>';
+          echo '<option value="0" selected>----</option>';
           while ($row = mysqli_fetch_assoc($result_1)) {
             echo '<option value=';
             while (list($key, $value) = each($row)) {
@@ -132,7 +132,7 @@
        <br> -->
        ชั้นที่นั่ง
        <select name="class">
-        <option value="" selected>-------</option>
+        <option value="0" selected>-------</option>
         <option value="economy">Economy</option>
         <option value="business">Business</option>
       </select>
@@ -144,8 +144,6 @@
     
     </form>
     
-
-
   <?php
 } else {
   header("location:login.php");
