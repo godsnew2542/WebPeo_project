@@ -77,8 +77,7 @@
         </form>
     <?php
 }
-mysqli_close($connect); 
-?>
+mysqli_close($connect); ?>
 </body>
 
 </html>

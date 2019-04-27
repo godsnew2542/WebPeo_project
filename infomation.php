@@ -26,52 +26,67 @@
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">
-       <?php echo "Welcome" . '&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
+        <?php echo "Welcome" . '&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-          <a class="nav-item nav-link px-5 small" href="#"> 
-          <?php echo '<a href="logout.php?logout">Logout</a>'; ?> </a>
+          <a class="nav-item nav-link px-5 small" href="#">
+            <?php echo '<a href="logout.php?logout">Logout</a>'; ?> </a>
         </div>
       </div>
     </nav>
     <br> <br>
     <form name="registration" action="" method="post">
       <h1>Infomation</h1>
-      Flight From <select>
-        <option value="ff101">กรุงเทพฯ</option>
-        <option value="ff102">ภูเก็ต</option>
-        <option value="ff103">สุราษฎร์</option>
-        <option value="ff104">กระบี่</option>
-        <option value="ff105">ตราด</option>
-        <option value="ff106">เชียงราย</option>
-        <option value="ff107">เชียงใหม่</option>
-        <option value="ff108">ตรัง</option>
-        <option value="ff109">ตราด</option>
-        <option value="ff110">เกาะสมุย</option>
-        <?php 
+      Flight From <select name="Flight_From">
+        <?php
+        $sql = 'SELECT FlightFrom FROM flight';
+        $result = mysqli_query($connect, $sql);
+        if (!$result) {
+          echo mysql_error() . '<br>';
+          die('Can not access database!');
+        } else {
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo '<option value=';
+            while (list($key, $value) = each($row)) {
+              echo $value;
+              echo '>';
+              echo $value;
+              echo '</option>';
+            }
+          }
+        }
         ?>
-        <option value="ff112">อุดรธานี</option>
-        <option value="ff113">ขอนแก่น</option>
-      </select> <br><br>
-      Flight To <select>
-        <option value="ft101">เชียงใหม่</option>
-        <option value="ft102">นครศรีธรรมราช</option>
-        <option value="ft103">ขอนแก่น</option>
-        <option value="ft104">อุดรธานี</option>
-        <option value="ft105">เกาะสมุย</option>
-        <option value="ft106">ภูเก็ต</option>
-        <option value="ft107">แม่ฮ่องสอน</option>
-        <option value="ft108">กรุงเทพ</option>
-        <option value="ft109">กรุงเทพ</option>
-        <option value="ft110">พัทยา</option>
-        <?php 
+        <br>
+      </select>
+
+      <br><br>
+      Flight To <select name="Flight_To">
+        <?php
+        $sql = 'SELECT FlightTo FROM flight';
+        $result_1 = mysqli_query($connect, $sql);
+        if (!$result_1) {
+          echo mysql_error() . '<br>';
+          die('Can not access database!');
+        } else {
+          while ($row = mysqli_fetch_assoc($result_1)) {
+            echo '<option value=';
+            while (list($key, $value) = each($row)) {
+              echo $value;
+              echo '>';
+              echo $value;
+              echo '</option>';
+            }
+          }
+        }
         ?>
-        <option value="ft112">เชียงใหม่</option>
-        <option value="ft113">กรุงเทพ</option>
-      </select> <br><br>
+        <br>
+      </select>
+      <br><br>
+
+
       จำนวนผู้โดยสาร <br> <?php //ห้ามเกิน9 คน 
                           ?>
       ผู้ใหญ่ : <input name="Adult" type="text" placeholder="3" required pattern="[\d0-9]{1}"> <br>
