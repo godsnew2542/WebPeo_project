@@ -61,26 +61,26 @@
         }
 
         $FName = stripslashes(test_input($_REQUEST['FName']));
-        $FName = mysqli_real_escape_string($con, $FName);
+        $FName = mysqli_real_escape_string($connect, $FName);
 
         $LName = stripslashes(test_input($_REQUEST['LName']));
-        $LName = mysqli_real_escape_string($con, $LName);
+        $LName = mysqli_real_escape_string($connect, $LName);
 
         $email = stripslashes(test_input($_REQUEST['email']));
-        $email = mysqli_real_escape_string($con, $email);
+        $email = mysqli_real_escape_string($connect, $email);
 
         $password = stripslashes(test_input($_REQUEST['pass']));
-        $password = mysqli_real_escape_string($con, $password);
+        $password = mysqli_real_escape_string($connect, $password);
 
         $Phone = stripslashes($_REQUEST['phone']);
-        $Phone = mysqli_real_escape_string($con, $Phone);
+        $Phone = mysqli_real_escape_string($connect, $Phone);
 
         $id_card = stripslashes($_REQUEST['id_card']);
-        $id_card = mysqli_real_escape_string($con, $id_card);
+        $id_card = mysqli_real_escape_string($connect, $id_card);
 
         $query = "INSERT into user (NID, Uname, Lname, Email, Passwd, Telephone )
             VALUES ('$id_card', '$FName', '$LName', '$email', '$password', '$Phone')";
-        $result = mysqli_query($con, $query);
+        $result = mysqli_query($connect, $query);
         if ($result) {
             ?>
             <div class="text-center fond">
@@ -126,7 +126,7 @@
         </form>
     <?php
 }
-mysqli_close($con);
+mysqli_close($connect);
 ?>
 </body>
 

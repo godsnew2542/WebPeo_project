@@ -42,7 +42,7 @@
         <?php
     } else {
         $query = "select * from user where Email = '" . $_POST['email'] . "' and Passwd = '" . $_POST['pass'] . "'";
-        $result = mysqli_query($con, $query);
+        $result = mysqli_query($connect, $query);
 
         if ($record = mysqli_fetch_array($result, MYSQLI_BOTH)) {
             $_SESSION['User'] = $record['Uname'] . '&nbsp' . '&nbsp' . $record['Lname'];
@@ -77,7 +77,8 @@
         </form>
     <?php
 }
-mysqli_close($con); ?>
+mysqli_close($connect); 
+?>
 </body>
 
 </html>
