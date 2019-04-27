@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
 
@@ -135,7 +136,6 @@
   header("location:login.php");
 }
 ?>
-
 
 </body>
 
