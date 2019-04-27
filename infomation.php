@@ -49,7 +49,7 @@
         <option value="ff108">ตรัง</option>
         <option value="ff109">ตราด</option>
         <option value="ff110">เกาะสมุย</option>
-        <?php // TG111 ไม่มีไม่รู้ เพื่อนลื่มใส่ไหม????
+        <?php 
         ?>
         <option value="ff112">อุดรธานี</option>
         <option value="ff113">ขอนแก่น</option>
@@ -65,7 +65,7 @@
         <option value="ft108">กรุงเทพ</option>
         <option value="ft109">กรุงเทพ</option>
         <option value="ft110">พัทยา</option>
-        <?php // TG111 ไม่มีไม่รู้ เพื่อนลื่มใส่ไหม????
+        <?php 
         ?>
         <option value="ft112">เชียงใหม่</option>
         <option value="ft113">กรุงเทพ</option>
