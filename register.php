@@ -77,7 +77,7 @@
 
         $id_card = stripslashes($_REQUEST['id_card']);
         $id_card = mysqli_real_escape_string($connect, $id_card);
-//
+
         $query = "INSERT into user (User_ID, NID, Uname, Lname, Email, Passwd, Telephone )
             VALUES ('', '$id_card', '$FName', '$LName', '$email', '$password', '$Phone')";
         $result = mysqli_query($connect, $query);
