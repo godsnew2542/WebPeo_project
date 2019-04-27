@@ -1,8 +1,8 @@
 <?php
-    $con=mysqli_connect('localhost','root','','airplane');
+    $connect = mysqli_connect('localhost','root','','airplane');
  
-    if(!$con)
+    if(!$connect)
     {
-        die(' Please Check Your Connection'.mysqli_error($con));
+        die(' Please Check Your Connection'.mysqli_error($connect));
     }
 ?>
