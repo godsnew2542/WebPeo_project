@@ -23,17 +23,22 @@
 
   if (isset($_SESSION['User'])) {
     ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">
-        <?php echo "Welcome" . '&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav px-md-5 ml-auto">
-          <?php echo '<a href="#">Homepage</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
-          <?php echo '<a href="History.php">History</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
-          <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><?php echo '&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
+        </div>
+        <div class="collapse navbar-collapse " id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Homepage</a></li>
+            <li><a href="History.php">History</a></li>
+            <li><a href="#logout.php?logout">Logout</a></li>
+          </ul>
         </div>
       </div>
     </nav>
