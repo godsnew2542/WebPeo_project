@@ -47,6 +47,8 @@
     if (!$result) {
       echo mysql_error() . '<br>';
       die('Can not access database!');
+    }else if(mysqli_num_rows($result) == 0){
+      echo "ไม่มีประวัติของคุณ";
     } else {
 
       while ($row = mysqli_fetch_assoc($result)) {
