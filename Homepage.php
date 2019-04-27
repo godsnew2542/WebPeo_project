@@ -130,6 +130,13 @@
        <label for="RFname">นามสกุลผู้จอง</label>
        <input type="text" name="RLname">
        <br> -->
+       ชั้นที่นั่ง
+       <select name="class">
+        <option value="" selected>-------</option>
+        <option value="economy">Economy</option>
+        <option value="business">Business</option>
+      </select>
+      <br>
 
       <button type="submit" name="Search">Search</button> <br> <br>
 

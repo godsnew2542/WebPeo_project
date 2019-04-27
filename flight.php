@@ -14,12 +14,15 @@
 
 <body>
 
+
     <?php
     require('db.php');
     session_start();
 ////
     if (isset($_SESSION['User'])) {
         ?>
+
+        <form action="insert_information.php" name="insertfrm" method="post">
          <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -40,27 +43,63 @@
       </div>
     </nav>
     <?php
-        // $sql = 'select * from flight where FlightFrom = "' . $_POST['Flight_From'] . '" 
-        // and FlightTo = "' . $_POST['Flight_To'] . '" ';
-        $sql = 'select * from flight where FlightNo = "' . $_POST['Flight_From'] . ',' . $_POST['Flight_To'] . '" ';
+        $sql = 'select * from flight where FlightFrom = "' . $_POST['Flight_From'] . '" and 
+                                           FlightTo = "' . $_POST['Flight_To'] . '";';
+
+
         $result = mysqli_query($connect, $sql);
 
         if (!$result) {
+
+            echo mysql_error() . '<br>';
+            die('Can not access database!');
+            
+        }else if(mysqli_num_rows($result) == ''){
+
             echo 'No Flight Needed';
             echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
+
         } else {
             while ($row = mysqli_fetch_assoc($result)) {
-                //นิวทำ
-                echo 'flight <br>';
-                echo 'ตรวจสอบสิ่งที่คุณเลือก <br>';
-                echo 'Flight From: ' . $_POST['Flight_From'] . '<br>';
-                echo 'Flight To: ' . $_POST['Flight_To'] . '<br>';
+               
+                if($_POST['class'] == "economy"){
+                    
+                    echo 'Flight From: ' . $row['FlightFrom'] ;
+                    echo 'Flight To: ' . $row['FlightTo'];
+                    echo 'Price : '.$row['Eco_Price'];
+                    echo '<br>';
+                    echo '&nbsp;'.'&nbsp;'.'&nbsp;';
+                    echo 'Depart : '.$row['Depart'];
+                    echo '&nbsp;'.'&nbsp;'.'&nbsp;';
+                    echo 'Arrive : '.$row['Arrive'];
+                    echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
+                    echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
+                    echo '<input type="submit" value="select">';
+                    echo '<br>';
+
+                }else if($_POST['class'] == "business"){
+
+                    echo 'Flight From: ' . $row['FlightFrom'] ;
+                    echo 'Flight To: ' . $row['FlightTo'];
+                    echo 'Price : '.$row['Business_Price'];
+                    echo '<br>';
+                    echo '&nbsp;'.'&nbsp;'.'&nbsp;';
+                    echo 'Depart : '.$row['Depart'];
+                    echo '&nbsp;'.'&nbsp;'.'&nbsp;';
+                    echo 'Arrive : '.$row['Arrive'];
+                    echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
+                    echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
+                    echo '<input type="submit" value="select">';
+                    echo '<br>';
+                }
+               
             }
         }
     } else {
         header("location:login.php");
     }
     ?>
+    </form>
 </body>
 
 </html>
