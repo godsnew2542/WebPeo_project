@@ -38,9 +38,49 @@
       </div>
     </nav>
     <h1>insert_information</h1>
+
   <?php
-  echo $_SESSION['class'];
-} else {
+
+    $sql = 'select * from flight where FlightNo = "'.$_POST['Flight'].'"';
+    $result = mysqli_query($connect, $sql);
+
+    if($_SESSION['class'] == "economy"){
+        while($row = mysqli_fetch_assoc($result)){
+          echo $row['FlightNo'];
+          echo '&nbsp;';
+          echo $row['Type'];
+          echo '&nbsp';
+          echo $row['FlightFrom'];
+          echo '&nbsp;';
+          echo $row['FlightTo'];
+          echo '&nbsp;';
+          echo $row['Distance'];
+          echo '&nbsp;';
+          echo $row['Arrive'];
+          echo '&nbsp;';
+          echo $row['Eco_Price'];
+        }
+        }else if($_SESSION['class'] == "business"){
+         while($row = mysqli_fetch_assoc($result)){
+
+        echo $row['FlightNo'];
+        echo '&nbsp;';
+        echo $row['Type'];
+        echo '&nbsp';
+        echo $row['FlightFrom'];
+        echo '&nbsp;';
+        echo $row['FlightTo'];
+        echo '&nbsp;';
+        echo $row['Distance'];
+        echo '&nbsp;';
+        echo $row['Arrive'];
+        echo '&nbsp;';
+        echo $row['Business_Price'];
+        
+         }
+        }
+      } else {
+
   header("location:login.php");
 }
 ?>

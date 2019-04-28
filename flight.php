@@ -22,7 +22,6 @@
     if (isset($_SESSION['User'])) {
         ?>
 
-        <form action="insert_information.php" name="insertfrm" method="post">
          <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -60,9 +59,12 @@
 
         } else {
             while ($row = mysqli_fetch_assoc($result)) {
+                echo '<form action="insert_information.php" name="insertfrm'.$row['FlightNo'].'" method="post">';
                
                 if($_POST['class'] == "economy"){
                     
+                    $_SESSION['class'] = "economy";
+
                     echo 'Flight From: ' . $row['FlightFrom'] ;
                     echo 'Flight To: ' . $row['FlightTo'];
                     echo 'Price : '.$row['Eco_Price'];
@@ -72,13 +74,14 @@
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo 'Arrive : '.$row['Arrive'];
                     echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
-                    $_SESSION['class'] = "economy";
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';
 
                 }else if($_POST['class'] == "business"){
                     
+                    $_SESSION['class'] = "business";
+
                     echo 'Flight From: ' . $row['FlightFrom'] ;
                     echo 'Flight To: ' . $row['FlightTo'];
                     echo 'Price : '.$row['Business_Price'];
@@ -87,8 +90,7 @@
                     echo 'Depart : '.$row['Depart'];
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo 'Arrive : '.$row['Arrive'];
-                    echo '<input type="hidden" name="Flight1" value="'.$row['FlightNo'].'">' ;
-                    $_SESSION['class'] = "business";
+                    echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';
