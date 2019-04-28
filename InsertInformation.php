@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>InsertInformation</title>
   <!---Required meta tags--->
@@ -22,17 +21,14 @@
       });
     });
   </script>
-  
 </head>
-
 <body>
-
   <?php
   require('db.php');
   session_start();
-
   if (isset($_SESSION['User'])) {
     ?>
+    <form name="insertinformation" action="History.php" method="post">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
         <?php echo $_SESSION['User'] ?></a>
@@ -47,8 +43,6 @@
         </div>
       </div>
     </nav>
-
-    <form name="insertinformation" action="Flight.php" method="post">
       <h1>Information</h1>
       จำนวนผู้โดยสาร <br>
       ผู้ใหญ่  
@@ -94,7 +88,5 @@
   header("location:login.php");
 }
 ?>
-
 </body>
-
 </html>
