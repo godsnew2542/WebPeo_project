@@ -21,6 +21,7 @@
       });
     });
   </script>
+  <!---ค่าคน--->
   <script language="javascript">
         function check() {
             if (document.insertinformation.Adult.value += document.insertinformation.child.value <= 9) {
