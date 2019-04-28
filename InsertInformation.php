@@ -47,9 +47,8 @@
         </div>
       </div>
     </nav>
-    <br> <br>
 
-    <form name="registration" action="Flight.php" method="post">
+    <form name="insertinformation" action="Flight.php" method="post">
       <h1>Information</h1>
       จำนวนผู้โดยสาร <br>
       ผู้ใหญ่  
