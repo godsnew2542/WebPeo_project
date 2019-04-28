@@ -111,7 +111,7 @@
                     Email: <br>
                     <input name="email" type="email" id="email" class="form-control col-md-6" placeholder="EMAIL" required> <br>
                     Passwoed: <br>
-                    <input name="pass" type="password" id="password" class="form-control col-md-6" placeholder="*****" pattern= "[0-9]{5,100}"  required> <br>
+                    <input name="pass" type="password" id="password" class="form-control col-md-6" placeholder="ต้องมีอย่างน้อย 5 ตัวขึ้นไป" pattern= "[0-9]{5,100}" required><br>
                     Phone: <br>
                     <input name="phone" type="text" id="phone" class="form-control col-md-6" placeholder="0981234567" pattern="(\d{10})" required> <br>
                     Id Card: <br> <?php //เป็น พายมะรีคีย์ ซึ่งถ้าใส่ซ่ำจะ เกิดข้อผิดพาดไม่เข้า ดาต้าเบส
