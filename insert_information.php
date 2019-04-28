@@ -43,7 +43,7 @@
 
     $sql = 'select * from flight where FlightNo = "'.$_POST['Flight'].'"';
     $result = mysqli_query($connect, $sql);
-
+    echo $_POST['Flight'];
     if($_SESSION['class'] == "economy"){
         while($row = mysqli_fetch_assoc($result)){
           echo $row['FlightNo'];
@@ -76,7 +76,6 @@
         echo $row['Arrive'];
         echo '&nbsp;';
         echo $row['Business_Price'];
-        
          }
         }
       } else {
