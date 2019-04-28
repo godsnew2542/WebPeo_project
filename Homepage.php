@@ -107,7 +107,7 @@
         <br><br>
       ชั้นที่นั่ง
       <select name="class">
-        <option value="" selected>-------</option>
+        <option value="" selected>--------</option>
         <option value="economy">Economy</option>
         <option value="business">Business</option>
       </select>
