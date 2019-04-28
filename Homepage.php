@@ -64,12 +64,13 @@
         Flight From 
           <?php
           echo '<select name="Flight_From">';
-          $sql = 'SELECT FlightFrom FROM flight';
+          $sql = 'SELECT distinct FlightFrom FROM flight order by FlightFrom asc';
           $result = mysqli_query($connect, $sql);
           if (!$result) {
             echo mysql_error().'<br>';
             die('Can not access database!');
           }else{
+            echo '<option value="" selected>-------</option>';
             while ($row = mysqli_fetch_assoc($result)) {
               echo '<option value=';
               while (list($key, $value) = each($row)) {
@@ -83,13 +84,18 @@
         Flight To 
           <?php
           echo '<select name="Flight_To">';
-          $sql = 'SELECT FlightTo FROM flight';
+
+          $sql = 'SELECT distinct FlightTo FROM flight order by FlightTo asc';
+
           $result_1 = mysqli_query($connect, $sql);
           if (!$result_1) {
             echo mysql_error() . '<br>';
             die('Can not access database!');
+          
           }else{
+            echo '<option value="" selected>-------</option>';
             while ($row = mysqli_fetch_assoc($result_1)) {
+
               echo '<option value=';
               while (list($key, $value) = each($row)) {
                 echo $value.'>'.$value.'</option>';
@@ -106,14 +112,6 @@
         <option value="business">Business</option>
       </select>
       <br><br>
-      วันเดินทาง
-      <input class="datepicker" width="200" placeholder="04/18/2019" required>
-      <script>
-        $('.datepicker').datepicker({
-          uiLibrary: 'bootstrap4'
-        });
-      </script>
-      <br>
       <button type="submit" name="Search">Search</button>
       </div>
       <div class="col-md-3"> </div>
@@ -129,6 +127,7 @@
   <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
   <!---navbar button--->
   <script type="text/javascript">
+
     $(function(){
       $(".close-l-sidenav,.open-l-sidenav").on("click",function(){
           var toggleWidth = ($(".l-sidenav").width()==0)?250:0;
