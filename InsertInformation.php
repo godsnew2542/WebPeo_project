@@ -21,6 +21,16 @@
       });
     });
   </script>
+  <!---ค่าคน--->
+  <script language="javascript">
+        function check() {
+            if (document.insertinformation.Adult.value += document.insertinformation.child.value <= 9) {
+              echo="1234"
+                    }else{
+                return confirm('คุณแน่ใจแล้วใช่ไหม');
+            }
+        }
+    </script>  
 </head>
 <body>
   <?php
@@ -43,7 +53,12 @@
         </div>
       </div>
     </nav>
-      <h1>Information</h1>
+<?php
+  if($_SESSION['class']){?>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+    <h1>Information</h1>
       จำนวนผู้โดยสาร <br>
       ผู้ใหญ่  
       <select name="Adult">
@@ -72,21 +87,21 @@
         <option value="2">2</option>
         <option value="3">3</option>
       </select>(0-3 ปี)<br><br>
-
       <label for="RFname">ชื่อผู้จอง</label>
-      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
       <input type="text" name="RFname">
       <br>
       <label for="RFname">นามสกุลผู้จอง</label>
       <input type="text" name="RLname">
       <br><br>
-      
-      <button type="submit" name="net">net</button>
+      <button type="submit" name="net">next</button>
+      </div>
+      <div class="col-md-3"></div>
     </form>
-  <?php
+<?php
 } else {
   header("location:login.php");
-}
+}}
 ?>
+
 </body>
 </html>
