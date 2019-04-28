@@ -2,30 +2,26 @@
 <html lang="en">
 
 <head>
-  <title>Homepage</title>
-  <!-- Required meta tags -->
+  <title>InsertInformation</title>
+  <!---Required meta tags--->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
+  <!---Bootstrap CSS--->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Itim|Kanit|PT+Sans|Prompt|Raleway|Slabo+27px|Taviraj" rel="stylesheet">
-
-  <style>
-    /*sidemenu ด้านซ้าย*/
-    .l-sidenav {
-        position: fixed; 
-        z-index: 1040; 
-        top: 0; 
-        left: 0;    
-        height: 100%; 
-        width: 0; 
-        overflow-x: hidden; 
-    }   
-  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>\
+  <!---navbar--->
+  <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
+  <!---navbar button--->
+  <script type="text/javascript">
+    $(function(){
+      $(".close-l-sidenav,.open-l-sidenav").on("click",function(){
+          var toggleWidth = ($(".l-sidenav").width()==0)?250:0;
+          $(".l-sidenav").width(toggleWidth);
+      });
+    });
+  </script>
   
 </head>
 
@@ -37,16 +33,16 @@
 
   if (isset($_SESSION['User'])) {
     ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <?php echo "<font color=red><b>Welcome</b></font>" . '&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
+        <?php echo $_SESSION['User'] ?></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-          <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
-          <?php echo '<a href="History.php">History</a>'; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+          <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
+          <?php echo '<a href="History.php">History</a>'; ?> &emsp;
           <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div>
@@ -99,19 +95,6 @@
   header("location:login.php");
 }
 ?>
-
-
-<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    /*เมื่อปุ่มปิดเปิด เมนูด้านซ้ายถูกคลิก*/
-    $(".close-l-sidenav,.open-l-sidenav").on("click",function(){
-        var toggleWidth = ($(".l-sidenav").width()==0)?250:0;
-        $(".l-sidenav").width(toggleWidth);
-    });
-});
-</script>
 
 </body>
 
