@@ -82,21 +82,21 @@
           echo '<div class="row">';
           echo '<div class="col-md-9">';
           echo '<table  border="1">';
-          echo '<tr><td><b>&nbsp'.'FirstName : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
           echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'LastName : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['RLname'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Class : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['Class'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Price : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['Price'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Date reserve : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['Date_reserve'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Trv date : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['Trv_date'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Adult : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Child : '.'&nbsp</b></td>';
+          echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table></div>';
           //
           
