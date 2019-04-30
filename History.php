@@ -34,10 +34,7 @@
     }   
   </style>
 </head>
-
 <body>
-
-
   <?php
   require('db.php');
   session_start();
@@ -101,16 +98,21 @@
           echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
           echo '<tr><td><b>&nbsp'.'Child : '.'&nbsp</b></td>';
           echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table></div>';
+          //
+          
           //submit
           echo '<div class="col-md-3"><table  border="1"><tr><td>&nbsp&nbsp&nbsp&nbsp';
-          echo '<form name="smtDelete" action="HistoryDelete.php" method="post">
-                <input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp&nbsp&nbsp
+          echo '<form name="smtDelete" action="HistoryDelete.php" method="post">';
+          echo '<input type="hidden" name="idd" value="'.$row['RID'].'">'."\n";
+          echo '<input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp&nbsp&nbsp
                 </form>';
-          echo '<form name="smtUpdate" action="HistoryUpdate.php" method="post">
-                <input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp&nbsp&nbsp
+          echo '<form name="smtUpdate" action="HistoryUpdate.php" method="post">';
+          echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
+          echo '<input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp&nbsp&nbsp
                 </form>';
-          echo '<form name="Print" action="HistoryPrint.php" method="post">
-                <input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp&nbsp
+          echo '<form name="Print" action="HistoryPrint.php" method="post">';
+          echo '<input type="hidden" name="idp" value="'.$row['RID'].'">'."\n";
+          echo  '<input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp&nbsp
                 </form><br>';
           echo '</td></tr></table></div></div><br>';
           }
@@ -142,11 +144,4 @@
     return confirm('Are you sure you want to print this?');
   }
 </script>
-<!--
-<button onclick="myFunction()">Print</button>
-<script>
-function myFunction() {
-  window.print();
-}
-</script>-->
 </html>
