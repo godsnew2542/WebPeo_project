@@ -55,11 +55,12 @@
         </div>
       </div><!---close navbar link--->
     </div><!---close navbar--->
+    
     <!---Homepage--->
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <h1 class="text-center1">Homepage</h1>
+          <h1 class="text-center">Homepage</h1>
         <br>
         Flight From 
           <?php
@@ -80,7 +81,7 @@
           }
           echo '</select>';
           ?>
-        <br><br>
+
         Flight To 
           <?php
           echo '<select name="Flight_To">';
@@ -115,12 +116,14 @@
       <button type="submit" name="Search">Search</button>
       </div>
       <div class="col-md-3"> </div>
+      
     
     <?php
     } else {
       header("location:login.php");
     }
     ?>
+    
 </form>
 <!---navbar--->
 <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>

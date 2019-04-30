@@ -127,6 +127,9 @@
         <option value="5">5</option>
       </select>(3-14 ปี)<br>
       <br><br>
+
+     วันที่เดินทาง
+     <input type="date" name="TrDate">
      
       <input type="submit" name="next" value="Next">
 
