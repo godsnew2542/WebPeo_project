@@ -74,7 +74,6 @@
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo 'Arrive : '.$row['Arrive'];
                     echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
-                    echo '<input type="hidden" name="price" value="'.$row['Eco_Price'].'">';
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';
@@ -92,7 +91,6 @@
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo 'Arrive : '.$row['Arrive'];
                     echo '<input type="hidden" name="Flight" value="'.$row['FlightNo'].'">' ;
-                    echo '<input type="hidden" name="price" value="'.$row['Business_Price'].'">';
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';

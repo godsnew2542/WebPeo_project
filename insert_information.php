@@ -9,6 +9,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script language="javascript">
+        function check() {
+            if (!(document.login.email.value == "" &&
+                    document.login.password.value == "")) {
+                return confirm('คุณแน่ใจแล้วใช่ไหม');
+            }
+        }
+    </script>
+
 </head>
 <body>
     
@@ -41,10 +51,14 @@
 
   <?php
 
+    echo '<form method="post" action="confirm_report.php" name="frmInsert">';
+
     $sql = 'select * from flight where FlightNo = "'.$_POST['Flight'].'"';
     $result = mysqli_query($connect, $sql);
-    echo $_POST['Flight'];
+
     if($_SESSION['class'] == "economy"){
+
+      $_SESSION['class'] = "economy";
         while($row = mysqli_fetch_assoc($result)){
           echo $row['FlightNo'];
           echo '&nbsp;';
@@ -59,6 +73,7 @@
           echo $row['Arrive'];
           echo '&nbsp;';
           echo $row['Eco_Price'];
+          echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
         }
         }else if($_SESSION['class'] == "business"){
          while($row = mysqli_fetch_assoc($result)){
@@ -76,8 +91,48 @@
         echo $row['Arrive'];
         echo '&nbsp;';
         echo $row['Business_Price'];
+        echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
          }
         }
+      
+?>
+
+   <!-- <h1>Information</h1> -->
+      <h1>ข้อมูลผู้จอง </h1>  <br>
+      <label for="RFname">ชื่อผู้จอง</label>
+      <input type="text" name="RFname">
+      <br>
+      <label for="RLname">นามสกุลผู้จอง</label>
+      <input type="text" name="RLname">
+      <br><br>
+
+      ผู้ใหญ่  
+      <select name="Adult">
+        <option value="" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>(อายุ &gt; 14 ปี)<br>
+      เด็ก  &nbsp&nbsp
+      <select name="child">
+        <option value="" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>(3-14 ปี)<br>
+      <br><br>
+     
+      <input type="submit" name="next" value="Next">
+
+    </form>
+
+<?php
       } else {
 
   header("location:login.php");
