@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="en">
 <head>
   <title>History</title>
   <!---Required meta tags--->
@@ -19,30 +21,6 @@
       });
     });
   </script>
-  <script language="javascript">
-  function ReDetail(){
-    <?php
-    $sql = "select * from reserve_flight where User_ID = '" . $_SESSION['User_ID'] . "' ";
-    $result = mysqli_query($connect, $sql);
-    if (!$result) {
-      echo mysql_error() . '<br>';
-      die('Can not access database!');
-    } else {
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo 'FirstName: '. $row['RFname'] .'<br>';
-        echo 'LastName: '.$row['RLname'].'<br>';
-        echo 'Class: '.$row['Class'].'<br>';
-        echo 'Price: '.$row['Price'].'<br>';
-        echo 'Date reserve: '.$row['Date_reserve'].'<br>';
-        echo 'Trv date: '.$row['Trv_date'].'<br>';
-      }
-    }
-  }else{
-    header("location:login.php");
-  }
-  ?>
-  }
-  </script>
   <style>
     /*sidemenu ด้านซ้าย*/
     .l-sidenav {
@@ -59,12 +37,13 @@
 
 <body>
 
-<?php
+
+  <?php
   require('db.php');
   session_start();
   if (isset($_SESSION['User'])) {?>
-    <!---navbar--->
-    <div class="navbar navbar-light bg-lightnavbar navbar-expand-lg navbar-dark bg-dark">
+      <!---navbar--->
+      <div class="navbar navbar-light bg-lightnavbar navbar-expand-lg navbar-dark bg-dark">
       <!---navbar name--->
       <a class="navbar-brand" href="#">
         <?php echo $_SESSION['User'] ?>
@@ -82,11 +61,92 @@
         </div>
       </div><!---close navbar link--->
     </div><!---close navbar--->
-    <!---History--->
-    <form name="history" action="Flight.php" method="post">
-    <h1>History</h1>
-    Information<br>
-    <button type="button" onclick="return ReDetail();">Reservation details</button><br>
+    <div class="row"><!---ROW--->
+      <div class="col-md-3"></div>
+      <div class="col-md-6"><!---center--->
+      <div class="row"><!---row History--->
+        <div class="col-md-6"></div>
+        <div class="col-md-2"><!---center--->
+        <h1>History</h1>
+        </div><!---close center--->
+        <div class="col-md-6"></div>
+      </div><!---close row History--->
+      <div class="row"><!---row ReDetail--->
+        <div class="col-md-4"><a>Reservation details</a></div>
+        <div class="col-md-8">
+        <?php
+        $sql = "select * from reserve_flight where User_ID = '".$_SESSION['User_ID']."' ";
+        $result = mysqli_query($connect, $sql);
+        if (!$result) {
+          echo mysql_error().'<br>';
+          die('Can not access database!');
+        } else {
+          while ($row = mysqli_fetch_assoc($result)) {
+          echo '<div class="row">';
+          echo '<div class="col-md-9">';
+          echo '<table  border="1">';
+          echo '<tr><td><b>&nbsp'.'FirstName : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
+          echo '<tr><td><b>&nbsp'.'LastName : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'.$row['RLname'].'&nbsp</td></tr>';
+          echo '<tr><td><b>&nbsp'.'Class : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'.$row['Class'].'&nbsp</td></tr>';
+          echo '<tr><td><b>&nbsp'.'Price : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'.$row['Price'].'&nbsp</td></tr>';
+          echo '<tr><td><b>&nbsp'.'Date reserve : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'.$row['Date_reserve'].'&nbsp</td></tr>';
+          echo '<tr><td><b>&nbsp'.'Trv date : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'.$row['Trv_date'].'&nbsp</td></tr>';
+          echo '<tr><td><b>&nbsp'.'Adult : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
+          echo '<tr><td><b>&nbsp'.'Child : '.'&nbsp</b></td>';
+          echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table></div>';
+          //submit
+          echo '<div class="col-md-3"><table  border="1"><tr><td>&nbsp&nbsp&nbsp&nbsp';
+          echo '<form name="smtDelete" action="HistoryDelete.php" method="post">
+                <input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp&nbsp&nbsp
+                </form>';
+          echo '<form name="smtUpdate" action="HistoryUpdate.php" method="post">
+                <input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp&nbsp&nbsp
+                </form>';
+          echo '<form name="Print" action="HistoryPrint.php" method="post">
+                <input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp&nbsp
+                </form><br>';
+          echo '</td></tr></table></div></div><br>';
+          }
+        }?>
+        </div></div><!---close row ReDetail---></div><!---close center--->
+      <div class="col-md-3"></div>
+    </div><!---close ROW--->
+    <?php
+    } else {
+      header("location:login.php");
+    }
+    ?>
 </body>
-
+<!---Button Delete-->
+<script language="JavaScript">
+  function confirmDelete(){
+    return confirm('Are you sure you want to delete this?');
+  }
+</script>
+<!---Button Update-->
+<script language="JavaScript">
+  function confirmUpdate(){
+    return confirm('Are you sure you want to update this?');
+  }
+</script>
+<!---Button Print-->
+<script language="JavaScript">
+  function confirmPrint(){
+    return confirm('Are you sure you want to print this?');
+  }
+</script>
+<!--
+<button onclick="myFunction()">Print</button>
+<script>
+function myFunction() {
+  window.print();
+}
+</script>-->
 </html>
