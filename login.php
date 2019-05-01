@@ -22,7 +22,7 @@
         function check1() {
             if (!(document.login.email.value == "" &&
                     document.login.password.value == "")) {
-                return confirm('คุณแน่ใจแล้วใช่ไหม1');
+                return confirm('Are you sure to logging in?');
             }
         }
     </script>

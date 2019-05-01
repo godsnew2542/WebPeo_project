@@ -19,22 +19,22 @@
     <script language="javascript">
         function check() {
             if (document.registration.FName.value == "") {
-                alert('กรุณา กรุณากรอก ชื่อของคุณ ');
+                alert('กรุณากรอก ชื่อของคุณ ');
                 return false;
             } else if (document.registration.LName.value == "") {
-                alert('กรุณา กรุณากรอก นามสกุลของคุณ ');
+                alert('กรุณากรอก นามสกุลของคุณ ');
                 return false;
             } else if (document.registration.email.value == "" && email == type("email")) {
-                alert('กรุณา กรุณากรอก E-mail ของคุณ ');
+                alert('กรุณากรอก E-mail ของคุณ ');
                 return false;
             } else if (document.registration.password.value == "") {
-                alert('กรุณา กรุณากรอก Password ของคุณ'); //มีความยาวอย่าน้อง 5ตัวขึ้นไป 
+                alert('กรุณากรอก Password ของคุณ'); //มีความยาวอย่าน้อง 5ตัวขึ้นไป 
                 return false;
             } else if (document.registration.phone.value == "" && phone == pattern("(\d{10})")) {
-                alert('กรุณา กรุณากรอก หมายเลขโทรศัพท์ของคุณ');
+                alert('กรุณากรอก หมายเลขโทรศัพท์ของคุณ');
                 return false;
             } else if (document.registration.card.value == "" && caed == pattern("(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})")) {
-                alert('กรุณา กรุณากรอก เลขบัตรประชาชนของคุณ ');
+                alert('กรุณากรอก เลขบัตรประชาชนของคุณ ');
                 return false;
             }
             if (!(document.registration.FName.value == "" &&
