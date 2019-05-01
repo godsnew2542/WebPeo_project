@@ -65,7 +65,7 @@
             $sql = 'Update from reserve_flight where RID = '.$_POST['idu'].';';
             $result = mysqli_query($connect,$sql);
             if (!$result) {
-                echo mysqli_error() . '<br>';
+                echo mysqli_error().'<br>';
                 die('Can not access database!');
             }else{
                 while($row = mysqli_fetch_assoc($result)){
