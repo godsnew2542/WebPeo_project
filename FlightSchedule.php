@@ -77,7 +77,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6"><!---Flight schedule--->
         <?php
-          $sql = 'SELECT * FROM flight';
+          $sql = 'SELECT distinct FlightFrom, FlightTo FROM flight';
           $result = mysqli_query($connect, $sql);
           if (!$result) {
             echo mysql_error().'<br>';
