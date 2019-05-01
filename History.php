@@ -101,6 +101,8 @@
           //
           
           //submit
+
+          }
           echo '<div class="col-md-3"><table  border="1"><tr><td>&nbsp&nbsp&nbsp&nbsp';
           echo '<form name="smtDelete" action="HistoryDelete.php" method="post">';
           echo '<input type="hidden" name="idd" value="'.$row['RID'].'">'."\n";

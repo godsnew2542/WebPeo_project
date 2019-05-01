@@ -61,9 +61,11 @@
     <div class="row"><!---ROW--->
         <div class="col-md-3"></div>
         <div class="col-md-6"><!---center--->
+
         <?php
-            $sql = 'Update from reserve_flight where RID = '.$_POST['idu'].';';
+            $sql = 'select * from reserve_flight where RID = '.$_POST['idu'].';';
             $result = mysqli_query($connect,$sql);
+
             if (!$result) {
                 echo mysqli_error() . '<br>';
                 die('Can not access database!');
