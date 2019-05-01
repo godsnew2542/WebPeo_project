@@ -62,12 +62,12 @@
         <div class="col-md-3"></div>
         <div class="col-md-6"><!---center--->
         <?php
-        $sql = 'update rooreserve_flightm set RFname = "'.$_POST["RFname"].'" ,
-                                            RLname = "'.$_POST["RLname"].'" ,
-                                            Class = "'.$_POST["Class"].'",
-                                            adult_total = "'.$_POST["adult_total"].'",
-                                            teen_total = "'.$_POST["teen_total"].'"
-                                            where RID = "'.$_POST["RID"].'"';
+        $sql = 'update reserve_flight set RFname = "'.$_POST["RFname"].'" ,
+                                          RLname = "'.$_POST["RLname"].'" ,
+                                          Class = "'.$_POST["Class"].'",
+                                          adult_total = "'.$_POST["adult_total"].'",
+                                          teen_total = "'.$_POST["teen_total"].'"
+                                          where RID = "'.$_POST["RID"].'"';
         $result = mysqli_query($connect,$sql);
         if($result){
             echo '<font size="23" color="red"><b>Complete</b></font><br>';
