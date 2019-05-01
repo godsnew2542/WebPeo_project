@@ -30,14 +30,13 @@
         left: 0;    
         height: 100%; 
         width: 0; 
-        overflow-x: hidden; 
+        overflow-x: hidden; u
     }   
   </style>
 </head>
 <body>
   <?php
-  require('db.php');
-  session_start();
+ 
   if (isset($_SESSION['User'])) {?>
       <!---navbar--->
       <div class="navbar navbar-light bg-lightnavbar navbar-expand-lg navbar-dark bg-dark">
