@@ -100,16 +100,22 @@
         echo '<table border="1" cellpading="0" cellspacing="0">';
         echo '<tr>'.'<td>'.'Date'.'</td>';//วันที่เดินทาง
         
-        echo '<td>'.'Flight No'.'</td>';//filghtno
-        echo '<td>'.'Departing'.'</td>';//จังหวัดต้นทาง,เวลา
-        echo '<td>'.'Arriving'.'</td>'.'</tr>';//จังหวัดปลายทาง,เวลา
+        echo '<td>'.'Flight No'.'</td>';
+        echo '<td>'.'AID'.'</td>';
+        echo '<td>'.'Type'.'</td>';
+        echo '<td>'.'Departing'.'</td>';
+        echo '<td>'.'Arriving'.'</td>';
+        echo '<td>'.'Price'.'</td>'.'</tr>';
         
 
         while($row = mysqli_fetch_assoc($result)){
             echo '<tr>'.'<td>'.$_POST['TrDate'].'</td>';
             echo '<td>'.$row['FlightNo'].'</td>';
+            echo '<td>'.$row['AID'].'</td>';
+            echo '<td>'.$row['Type'].'</td>';
             echo '<td>'.$row['FlightFrom'].'</td>';
-            echo '<td>'.$row['FlightTo'].'</td>'.'</tr>';
+            echo '<td>'.$row['FlightTo'].'</td>';
+            echo '<td>'.$row['Eco_Price'].'</td>'.'</tr>';
         }
         echo '</table>';
     
