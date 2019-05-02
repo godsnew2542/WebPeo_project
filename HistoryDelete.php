@@ -52,72 +52,29 @@
       <!---navbar link--->
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-          <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
-          <?php echo '<a href="#">History</a>'; ?> &emsp;
-          <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
+            <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
+            <?php echo '<a href="#">History</a>'; ?> &emsp;
+            <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div><!---close navbar link--->
     </div><!---close navbar--->
     <div class="row"><!---ROW--->
-      <div class="col-md-3"></div>
-      <div class="col-md-6"><!---center--->
-      <div class="row"><!---row History--->
-        <div class="col-md-6"></div>
-        <div class="col-md-2"><!---center--->
-        <h1>History</h1>
-        </div><!---close center--->
-        <div class="col-md-6"></div>
-      </div><!---close row History--->
-      <div class="row"><!---row ReDetail--->
-        <div class="col-md-4"><a>Reservation details</a></div>
-        <div class="col-md-8">
+        <div class="col-md-3"></div>
+        <div class="col-md-6"><!---center--->
         <?php
-        $sql = "select * from reserve_flight where User_ID = '".$_SESSION['User_ID']."' ";
-        $result = mysqli_query($connect, $sql);
-        if (!$result) {
-          echo mysql_error().'<br>';
-          die('Can not access database!');
-        } else {
-          while ($row = mysqli_fetch_assoc($result)) {
-          echo '<div class="row">';
-          echo '<div class="col-md-9">';
-          echo '<table  border="1">';
-          echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
-          echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['RLname'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Class'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Price'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Date_reserve'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Trv_date'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table></div>';
-          //
-          
-          //submit
-          echo '<div class="col-md-3"><table  border="1"><tr><td>&nbsp&nbsp&nbsp&nbsp';
-          echo '<form name="frmDelete'.$row['RID'].'" action="HistoryDelete.php" method="post">';
-          echo '<input type="hidden" name="idd" value="'.$row['RID'].'">'."\n";
-          echo '<input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp&nbsp&nbsp
-                </form>';
-          echo '<form name="frmUpdate'.$row['RID'].'" action="HistoryUpdate.php" method="post">';
-          echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
-          echo '<input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp&nbsp&nbsp
-                </form>';
-          echo '<form name="frmPrint'.$row['RID'].'" action="HistoryPrint.php" method="post">';
-          echo '<input type="hidden" name="idp" value="'.$row['RID'].'">'."\n";
-          echo  '<input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp&nbsp
-                </form><br>';
-          echo '</td></tr></table></div></div><br>';
-          }
-        }?>
-        </div></div><!---close row ReDetail---></div><!---close center--->
+        $sql = 'Delete from reserve_flight where RID = '.$_POST['idd'].';';
+        $result = mysqli_query($connect,$sql);
+        if($result){
+            echo '<font size="23" color="red"><b>Complete</b></font><br>';
+            echo "<b>กลับไปยังประวัติการจองของคุณ</b>";
+            echo "<br>Click here to <a href='History.php'>History</a>";
+        }else{
+            echo '<font size="23" color="red"><b>No Complete</b></font><br>';
+            echo "<b>กลับไปยังหน้าแรก</b>";
+            echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
+        }
+        ?>
+      </div><!---close center--->
       <div class="col-md-3"></div>
     </div><!---close ROW--->
     <?php
@@ -126,29 +83,4 @@
     }
     ?>
 </body>
-<!---Button Delete-->
-<script language="JavaScript">
-  function confirmDelete(){
-    return confirm('Are you sure you want to delete this?');
-  }
-</script>
-<!---Button Update-->
-<script language="JavaScript">
-  function confirmUpdate(){
-    return confirm('Are you sure you want to update this?');
-  }
-</script>
-<!---Button Print-->
-<script language="JavaScript">
-  function confirmPrint(){
-    return confirm('Are you sure you want to print this?');
-  }
-</script>
-<!--
-<button onclick="myFunction()">Print</button>
-<script>
-function myFunction() {
-  window.print();
-}
-</script>-->
 </html>
