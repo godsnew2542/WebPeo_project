@@ -67,7 +67,7 @@
                                           Class = "'.$_POST["Class"].'",
                                           adult_total = "'.$_POST["adult_total"].'",
                                           teen_total = "'.$_POST["teen_total"].'"
-                                          where RID = "'.$_POST["RID"].'"';
+                                          where RID = '.$_POST['idu'].';';
         $result = mysqli_query($connect,$sql);
         if($result){
             echo '<font size="23" color="red"><b>Complete</b></font><br>';
