@@ -52,29 +52,54 @@
       <!---navbar link--->
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-            <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
-            <?php echo '<a href="#">History</a>'; ?> &emsp;
-            <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
+          <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
+          <?php echo '<a href="#">History</a>'; ?> &emsp;
+          <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div><!---close navbar link--->
     </div><!---close navbar--->
     <div class="row"><!---ROW--->
+      <div class="col-md-3"></div>
+      <div class="col-md-6"><!---center--->
+      <div class="row"><!---row History--->
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><!---center--->
+        <h1>History</h1>
+        </div><!---close center--->
+        <div class="col-md-4"></div>
+      </div><!---close row History--->
+      <div class="row"><!---row ReDetail--->
         <div class="col-md-3"></div>
-        <div class="col-md-6"><!---center--->
+        <div class="col-md-9">
         <?php
-        $sql = 'Delete from reserve_flight where RID = '.$_POST['idd'].';';
-        $result = mysqli_query($connect,$sql);
-        if($result){
-            echo '<font size="23" color="red"><b>Complete</b></font><br>';
-            echo "<b>กลับไปยังประวัติการจองของคุณ</b>";
-            echo "<br>Click here to <a href='History.php'>History</a>";
-        }else{
-            echo '<font size="23" color="red"><b>No Complete</b></font><br>';
-            echo "<b>กลับไปยังหน้าแรก</b>";
-            echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
-        }
-        ?>
-      </div><!---close center--->
+        $sql = 'select * from reserve_flight where RID = '.$_POST['idp'].';';
+        $result = mysqli_query($connect, $sql);
+        if (!$result) {
+          echo mysql_error().'<br>';
+          die('Can not access database!');
+        } else {
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo '<table  border="1">';
+            echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
+            echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['RLname'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Class'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Price'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Date_reserve'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Trv_date'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table>';
+          }
+          echo '<br><button onclick="myFunction()">Print this page</button>';
+        }?>
+        </div></div><!---close row ReDetail---></div><!---close center--->
       <div class="col-md-3"></div>
     </div><!---close ROW--->
     <?php
@@ -83,4 +108,10 @@
     }
     ?>
 </body>
+<!---Button Print-->
+<script>
+function myFunction() {
+  window.print();
+}
+</script>
 </html>

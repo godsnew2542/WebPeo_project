@@ -61,46 +61,72 @@
     <div class="row"><!---ROW--->
         <div class="col-md-3"></div>
         <div class="col-md-6"><!---center--->
-
-        <?php
-            $sql = 'select * from reserve_flight where RID = '.$_POST['idu'].';';
-            $result = mysqli_query($connect,$sql);
-
-            if (!$result) {
-                echo mysqli_error() . '<br>';
-                die('Can not access database!');
-            }else{
-                while($row = mysqli_fetch_assoc($result)){
-                    echo '<form method="post" name="frmUpdate'.$row['RID'].'" action="HistoryUpdate2.php">';
-                    echo 'FirstName';
-                    echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-                    echo '<input type="text" name="RFname" value="'.$row['RFname'].'">';
-                    echo '<br>';
-                    echo 'LastName';
-                    echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-                    echo '<input type="text" name="RLname" value="'.$row['RLname'].'">';
-                    echo '<br>';
-                    echo 'Class';
-                    echo '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';
-                    echo '<input type="text" name="Class" value="'.$row['Class'].'">';
-                    echo '<br>';
-                    echo 'Price';
-                    echo '&nbsp';	
-                    echo '<input type="text" name="Price" disabled="disabled" value="'.$row['Price'].'">';
-                    echo '<br>';
-                    echo 'Adult';
-                    echo '&nbsp&nbsp&nbsp&nbsp&nbsp';
-                    echo '<input type="text" name="adult_total" value="'.$row['adult_total'].'">';
-                    echo '<br>';
-                    echo 'Child';
-                    echo '&nbsp&nbsp&nbsp&nbsp&nbsp';
-                    echo '<input type="text" name="teen_total" value="'.$row['teen_total'].'">';
-                    echo '<br>';
-                    echo '<td><input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
-                    echo '</form>';
-                }
-            }
-        ?>
+            <div class="row"><!---row History Update--->
+                <div class="col-md-2"></div>
+                <div class="col-md-8"><!---center--->
+                    <h1>History Update</h1>
+                </div><!---close center--->
+                <div class="col-md-2"></div>
+            </div><!---close row History Update--->
+            <div class="row"><!---row Update--->
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                <?php
+                    $sql = 'select * from reserve_flight where RID = '.$_POST['idu'].';';
+                    $result = mysqli_query($connect,$sql);
+                    if (!$result) {
+                        echo mysqli_error() . '<br>';
+                        die('Can not access database!');
+                    }else{
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo '<form method="post" name="frmUpdate'.$row['RID'].'" action="HistoryUpdate2.php">';
+                            echo '<table>';
+                            echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<input type="text" name="RFname" value="'.$row['RFname'].'">'.'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<input type="text" name="RLname" value="'.$row['RLname'].'">'.'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<select name="Class" value="'.$row['Class'].'">
+                                    <option value="" selected>-------</option>
+                                    <option value="economy">Economy</option>
+                                    <option value="business">Business</option>
+                                    </select>'.'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Price'].'">'.'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Date_reserve'].'">'.'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Trv_date'].'">'.'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<select name="adult_total" value="'.$row['adult_total'].'">
+                                    <option value="" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    </select>&nbsp&nbsp&nbsp(อายุ &gt; 14 ปี)'.'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
+                            echo '<td>&nbsp'.'<select name="teen_total" value="'.$row['teen_total'].'">
+                                    <option value="" selected>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    </select>&nbsp&nbsp&nbsp(3-14 ปี)'.'&nbsp</td></tr>';
+                            echo '<td>';
+                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
+                            echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
+                            echo '</table></form>';
+                        }
+                    }
+                ?>
+                </div>
+                <div class="col-md-2"></div>
+            </div><!---row Update--->
         </div><!---close center--->
         <div class="col-md-3"></div>
         </div><!---close ROW--->

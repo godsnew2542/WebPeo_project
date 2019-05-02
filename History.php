@@ -79,42 +79,40 @@
           die('Can not access database!');
         } else {
           while ($row = mysqli_fetch_assoc($result)) {
-          echo '<div class="row">';
-          echo '<div class="col-md-9">';
-          echo '<table  border="1">';
-          echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
-          echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['RLname'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Class'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Price'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Date_reserve'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['Trv_date'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
-          echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
-          echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table></div>';
-          //
-          
-          //submit
-          echo '<div class="col-md-3"><table  border="1"><tr><td>&nbsp&nbsp&nbsp&nbsp';
-          echo '<form name="smtDelete" action="HistoryDelete.php" method="post">';
-          echo '<input type="hidden" name="idd" value="'.$row['RID'].'">'."\n";
-          echo '<input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp&nbsp&nbsp
-                </form>';
-          echo '<form name="smtUpdate" action="HistoryUpdate.php" method="post">';
-          echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
-          echo '<input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp&nbsp&nbsp
-                </form>';
-          echo '<form name="Print" action="HistoryPrint.php" method="post">';
-          echo '<input type="hidden" name="idp" value="'.$row['RID'].'">'."\n";
-          echo  '<input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp&nbsp
-                </form><br>';
-          echo '</td></tr></table></div></div><br>';
+            echo '<div class="row">';
+            echo '<div class="col-md-9">';
+            echo '<table  border="1">';
+            echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
+            echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['RLname'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Class'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Price'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Date_reserve'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['Trv_date'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
+            echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
+            echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table></div>';
+            //submit
+            echo '<div class="col-md-3"><table  border="1"><tr><td>&nbsp&nbsp&nbsp&nbsp';
+            echo '<form name="frmDelete'.$row['RID'].'" action="HistoryDelete.php" method="post">';
+            echo '<input type="hidden" name="idd" value="'.$row['RID'].'">'."\n";
+            echo '<input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp&nbsp&nbsp
+                  </form>';
+            echo '<form name="frmUpdate'.$row['RID'].'" action="HistoryUpdate.php" method="post">';
+            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
+            echo '<input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp&nbsp&nbsp
+                  </form>';
+            echo '<form name="frmPrint'.$row['RID'].'" action="HistoryPrint.php" method="post">';
+            echo '<input type="hidden" name="idp" value="'.$row['RID'].'">'."\n";
+            echo  '<input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp&nbsp
+                  </form><br>';
+            echo '</td></tr></table></div></div><br>';
           }
         }?>
         </div></div><!---close row ReDetail---></div><!---close center--->
@@ -144,4 +142,11 @@
     return confirm('Are you sure you want to print this?');
   }
 </script>
+<!--
+<button onclick="myFunction()">Print</button>
+<script>
+function myFunction() {
+  window.print();
+}
+</script>-->
 </html>
