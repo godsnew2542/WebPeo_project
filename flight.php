@@ -60,11 +60,15 @@
         } else {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<form action="insert_information.php" name="insertfrm'.$row['FlightNo'].'" method="post">';
-               
+                echo '<div class="container">';
+                echo '<div class="form-row">';
+                echo '<div class="form-group col-md-3"></div>';
+
                 if($_POST['class'] == "economy"){
                     
                     $_SESSION['class'] = "economy";
 
+                    echo '<div class="form-group col-md-6">';
                     echo 'Flight From: ' . $row['FlightFrom'] ;
                     echo 'Flight To: ' . $row['FlightTo'];
                     echo 'Price : '.$row['Eco_Price'];
@@ -77,11 +81,13 @@
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';
+                    echo '</div>';
 
                 }else if($_POST['class'] == "business"){
                     
                     $_SESSION['class'] = "business";
 
+                    echo '<div class="form-group col-md-6">';
                     echo 'Flight From: ' . $row['FlightFrom'] ;
                     echo 'Flight To: ' . $row['FlightTo'];
                     echo 'Price : '.$row['Business_Price'];
@@ -94,11 +100,16 @@
                     echo '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;';
                     echo '<input type="submit" value="select">';
                     echo '<br>';
+                    echo '</div>';
                 }else{
                     echo "กรุณาเลือกชั่นที่นั้งของคุณ <br>";
                     echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
                 }
-            echo'</form>';   
+            echo '<div class="form-group col-md-3"></div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</form>';   
             }
         }
     } else {
