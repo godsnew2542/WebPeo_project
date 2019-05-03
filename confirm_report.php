@@ -39,7 +39,7 @@
       </div>
     </nav>
 
-    <form method="post" action="report.php">
+    <form method="post" action="add_reserve_flight.php">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous">
@@ -103,19 +103,66 @@
         echo '<td>'.'Flight No'.'</td>';
         echo '<td>'.'AID'.'</td>';
         echo '<td>'.'Type'.'</td>';
+        echo '<td>'.'Class'.'</td>';
         echo '<td>'.'Departing'.'</td>';
         echo '<td>'.'Arriving'.'</td>';
         echo '<td>'.'Price'.'</td>'.'</tr>';
-        
 
-        while($row = mysqli_fetch_assoc($result)){
+        if($_SESSION['class'] == "economy"){
+
+          $_SESSION['class'] = "economy";
+            
+          while($row = mysqli_fetch_assoc($result)){
             echo '<tr>'.'<td>'.$_POST['TrDate'].'</td>';
             echo '<td>'.$row['FlightNo'].'</td>';
             echo '<td>'.$row['AID'].'</td>';
             echo '<td>'.$row['Type'].'</td>';
+            echo '<td>'.'Economy'.'</td>';
             echo '<td>'.$row['FlightFrom'].'</td>';
             echo '<td>'.$row['FlightTo'].'</td>';
-            echo '<td>'.$row['Eco_Price'].'</td>'.'</tr>';
+            
+            
+            $num = $_POST['Adult'];
+            $sum =  $row['Eco_Price']*$num;
+            $price = $sum*$num;
+
+              if ($num==1){$price;}
+                else if($num==2){ $price;}
+                else if($num==3){ $price;}
+                else if($num==4){ $price;}
+                else if($num==5){ $price;}
+                else if($num==6){ $price;}
+                else if($num==7){ $price;}
+                else if($num==0){ $num;}
+            echo '<td>'.$price.'</td>'.'</tr>';
+              
+            
+          }
+        }else if($_SESSION['class'] == "business"){
+         while($row = mysqli_fetch_assoc($result)){
+            echo '<tr>'.'<td>'.$_POST['TrDate'].'</td>';
+            echo '<td>'.$row['FlightNo'].'</td>';
+            echo '<td>'.$row['AID'].'</td>';
+            echo '<td>'.$row['Type'].'</td>';
+            echo '<td>'.'Business'.'</td>';
+            echo '<td>'.$row['FlightFrom'].'</td>';
+            echo '<td>'.$row['FlightTo'].'</td>';
+            
+
+            $num = $_POST['Adult'];
+            $sum =  $row['Business_Price']*$num;
+            $price = $sum*$num;
+
+              if ($num==1){$price;}
+                else if($num==2){ $price;}
+                else if($num==3){ $price;}
+                else if($num==4){ $price;}
+                else if($num==5){ $price;}
+                else if($num==6){ $price;}
+                else if($num==7){ $price;}
+                else if($num==0){ $num;}
+            echo '<td>'.$row['Business_Price'].'</td>'.'</tr>';
+         }
         }
         echo '</table>';
     
@@ -132,12 +179,12 @@
 ?>
 
 <br>
-<button>confirm</button>
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">cancel</button>
-
-
-
+<button>confirm</button></form>
+<form method="post" action="Homepage.php">
+<button onclick="">Cancel</button>
 </form>
+
+
     <?php
   }else {
     header("location:login.php");
