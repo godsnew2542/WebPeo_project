@@ -62,7 +62,8 @@
 
     function details(){
 
-        echo '<div>'.'<b>'.'Dear Khun '.$_POST['RFname'].','.'</b>';
+        echo '<div>'.'<b>'.'Dear Khun '.$_POST['RFname'];
+        echo '<input type="hidden" name="RFname" value="'.$_POST['RFname'].'">'.','.'</b>';
         echo '<p>'.Bthank.'</p>'.'</div>';
 
         echo '<div class="row">';
@@ -73,11 +74,12 @@
         echo '<div class="col-sm-12>';
 
         echo '<div class="col-sm-6">'.Bdate;
-        echo  date('d-m-Y').'</div>';    //วันที่ออกเดินทาง
+        echo  date('Y-m-d').'</div>';    //วันที่ออกเดินทาง
         
 
         echo '<div class="col-sm-12">';
-        echo  BPassg.$_POST['RFname'].'&nbsp;'.$_POST['RLname'].'</div>';//ชื่อผู้เดินทาง
+        echo  BPassg.$_POST['RFname'].'&nbsp;'.$_POST['RLname'];
+        echo '<input type="hidden" name="RLname" value="'.$_POST['RLname'].'">'.'</div>';//ชื่อผู้เดินทาง
         echo '</div>';
         echo '</div>';
         echo '</div>';
@@ -113,55 +115,145 @@
           $_SESSION['class'] = "economy";
             
           while($row = mysqli_fetch_assoc($result)){
-            echo '<tr>'.'<td>'.$_POST['TrDate'].'</td>';
-            echo '<td>'.$row['FlightNo'].'</td>';
-            echo '<td>'.$row['AID'].'</td>';
-            echo '<td>'.$row['Type'].'</td>';
+            echo '<tr>'.'<td>'.$_POST['TrDate'];
+            echo '<input type="hidden" name="TrDate" value="'.$_POST['TrDate'].'">'.'</td>';
+            echo '<td>'.$row['FlightNo'];
+            echo '<input type="hidden" name="FlightNo" value="'.$row['FlightNo'].'">'.'</td>';
+            echo '<td>'.$row['AID'];
+            echo '<input type="hidden" name="AID" value="'.$row['AID'].'">'.'</td>';
+            echo '<td>'.$row['Type'];
+            echo '<input type="hidden" name="Type" value="'.$row['Type'].'">'.'</td>';
             echo '<td>'.'Economy'.'</td>';
-            echo '<td>'.$row['FlightFrom'].'</td>';
-            echo '<td>'.$row['FlightTo'].'</td>';
+            echo '<td>'.$row['FlightFrom'];
+            echo '<input type="hidden" name="FlightFrom" value="'.$row['FlightFrom'].'">'.'</td>';
+            echo '<td>'.$row['FlightTo'];
+            echo '<input type="hidden" name="FlightTo" value="'.$row['FlightTo'].'">'.'</td>';
             
-            
-            $num = $_POST['Adult'];
-            $sum =  $row['Eco_Price']*$num;
-            $price = $sum*$num;
+            if($_POST['Adult']==1){
+           $price = $_POST['Adult']* $row['Eco_Price'];
+            echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+          }else if($_POST['Adult']==2){
+            $price = $_POST['Adult']* $row['Eco_Price'];
+            echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+          }else if($_POST['Adult']==3){
+            $price = $_POST['Adult']* $row['Eco_Price'];
+            echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+          }else if($_POST['Adult']==4){
+            $price = $_POST['Adult']* $row['Eco_Price'];
+            echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+          }else if($_POST['Adult']==5){
+            $price = $_POST['Adult']* $row['Eco_Price'];
+            echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+          }else if($_POST['Adult']==6){
+            $price = $_POST['Adult']* $row['Eco_Price'];
+            echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+          }else if($_POST['Adult']==7){
+            $price = $_POST['Adult']* $row['Eco_Price'];
+            echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+          }else{
+            $price = $_POST['Adult']*0;
+          }
 
-              if ($num==1){$price;}
-                else if($num==2){ $price;}
-                else if($num==3){ $price;}
-                else if($num==4){ $price;}
-                else if($num==5){ $price;}
-                else if($num==6){ $price;}
-                else if($num==7){ $price;}
-                else if($num==0){ $num;}
+          if($_POST['child']==1){
+            $price += $_POST['child']*$row['Eco_Price'];
+            echo '<input type="hidden" name="price" value="'.$price.'">';
+            echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+          }else if($_POST['child']==2){
+            $price += $_POST['child']*$row['Eco_Price'];
+            echo '<input type="hidden" name="price" value="'.$price.'">';
+            echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+          }else if($_POST['child']==3){
+            $price += $_POST['child']*$row['Eco_Price'];
+            echo '<input type="hidden" name="price" value="'.$price.'">';
+            echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+          }else if($_POST['child']==4){
+            $price += $_POST['child']*$row['Eco_Price'];
+            echo '<input type="hidden" name="price" value="'.$price.'">';
+            echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+          }else if($_POST['child']==5){
+            $price += $_POST['child']*$row['Eco_Price'];
+            echo '<input type="hidden" name="price" value="'.$price.'">';
+            echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+          }else{
+            $price += $_POST['child']*0;
+            echo '<input type="hidden" name="price" value="'.$price.'">';
+            echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+          }
+
+
+
             echo '<td>'.$price.'</td>'.'</tr>';
               
             
           }
         }else if($_SESSION['class'] == "business"){
+          $_SESSION['class'] = "business";
          while($row = mysqli_fetch_assoc($result)){
-            echo '<tr>'.'<td>'.$_POST['TrDate'].'</td>';
-            echo '<td>'.$row['FlightNo'].'</td>';
-            echo '<td>'.$row['AID'].'</td>';
-            echo '<td>'.$row['Type'].'</td>';
-            echo '<td>'.'Business'.'</td>';
-            echo '<td>'.$row['FlightFrom'].'</td>';
-            echo '<td>'.$row['FlightTo'].'</td>';
-            
+          echo '<tr>'.'<td>'.$_POST['TrDate'];
+          echo '<input type="hidden" name="TrDate" value="'.$_POST['TrDate'].'">'.'</td>';
+          echo '<td>'.$row['FlightNo'];
+          echo '<input type="hidden" name="FlightNo" value="'.$row['FlightNo'].'">'.'</td>';
+          echo '<td>'.$row['AID'];
+          echo '<input type="hidden" name="AID" value="'.$row['AID'].'">'.'</td>';
+          echo '<td>'.$row['Type'];
+          echo '<input type="hidden" name="Type" value="'.$row['Type'].'">'.'</td>';
+          echo '<td>'.'Business'.'</td>';
+          echo '<td>'.$row['FlightFrom'];
+          echo '<input type="hidden" name="FlightFrom" value="'.$row['FlightFrom'].'">'.'</td>';
+          echo '<td>'.$row['FlightTo'];
+          echo '<input type="hidden" name="FlightTo" value="'.$row['FlightTo'].'">'.'</td>';
+          
+          if($_POST['Adult']==1){
+         $price = $_POST['Adult']* $row['Business_Price'];
+         echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+        }else if($_POST['Adult']==2){
+          $price = $_POST['Adult']* $row['Business_Price'];
+          echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+        }else if($_POST['Adult']==3){
+          $price = $_POST['Adult']* $row['Business_Price'];
+          echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+        }else if($_POST['Adult']==4){
+          $price = $_POST['Adult']* $row['Business_Price'];
+          echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+        }else if($_POST['Adult']==5){
+          $price = $_POST['Adult']* $row['Business_Price'];
+          echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';  
+        }else if($_POST['Adult']==6){
+          $price = $_POST['Adult']* $row['Business_Price'];
+          echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+        }else if($_POST['Adult']==7){
+          $price = $_POST['Adult']* $row['Business_Price'];
+          echo '<input type="hidden" name="Adult" value="'.$_POST['Adult'].'">';
+        }else{
+          $price = $_POST['Adult']*0;
+        }
 
-            $num = $_POST['Adult'];
-            $sum =  $row['Business_Price']*$num;
-            $price = $sum*$num;
-
-              if ($num==1){$price;}
-                else if($num==2){ $price;}
-                else if($num==3){ $price;}
-                else if($num==4){ $price;}
-                else if($num==5){ $price;}
-                else if($num==6){ $price;}
-                else if($num==7){ $price;}
-                else if($num==0){ $num;}
-            echo '<td>'.$row['Business_Price'].'</td>'.'</tr>';
+        if($_POST['child']==1){
+          $price += $_POST['child']*$row['Business_Price'];
+          echo '<input type="hidden" name="price" value="'.$price.'">';
+          echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+        }else if($_POST['child']==2){
+          $price += $_POST['child']*$row['Business_Price'];
+          echo '<input type="hidden" name="price" value="'.$price.'">';
+          echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+        }else if($_POST['child']==3){
+          $price += $_POST['child']*$row['Business_Price'];
+          echo '<input type="hidden" name="price" value="'.$price.'">';
+          echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+        }else if($_POST['child']==4){
+          $price += $_POST['child']*$row['Business_Price'];
+          echo '<input type="hidden" name="price" value="'.$price.'">';
+          echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+        }else if($_POST['child']==5){
+          $price += $_POST['child']*$row['Business_Price'];
+          echo '<input type="hidden" name="price" value="'.$price.'">';
+          echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
+        } else{$price += $_POST['child']*0;
+        }
+          echo '<td>'.$price.'</td>'.'</tr>';
+          
+          
+          
          }
         }
         echo '</table>';

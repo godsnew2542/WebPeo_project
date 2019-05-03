@@ -118,6 +118,7 @@
          
         }
         }else if($_SESSION['class'] == "business"){
+          $_SESSION['class'] = "business";
          while($row = mysqli_fetch_assoc($result)){
 
           echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
@@ -170,8 +171,8 @@
        <div class="input-group-prepend">
         <span class="input-group-text">First and last name</span>
      </div>
-       <input type="text" aria-label="RFname" class="form-control">
-      <input type="text" aria-label="RLname" class="form-control">
+       <input type="text" name="RFname" class="form-control">
+       <input type="text" name="RLname" class="form-control">
     </div>
 <br>
 

@@ -46,89 +46,40 @@
       </div>
     </nav>
     <h1>thank you</h1>
-
+    
     
 <?php
   require('db.php');
-  $sql = 'INSERT into reserve_flight 
-  VALUES ( "","'.$_POST['Adult'].'",
-              "'.$_POST['child'].'",
-              "'.$_POST['$price'].'",
-              "'.date('d-m-Y').'")';
-
-  $result = mysqli_query($connect, $sql);
-
-  $sql1 = 'INSERT into reserve_flight
-  VALUES     ("'.$_POST['User_ID'].'",
+ 
+  if($_SESSION['class']=="economy"){
+    $sql = 'INSERT into reserve_flight values
+    ("","'.$_SESSION['User_ID'].'",
               "'.$_POST['RFname'].'",
               "'.$_POST['RLname'].'",
-              "'.$_POST['class'].'",
-               "'.$_POST['TrDate'].'" )';
-
-  $result1 = mysqli_query($connect, $sql1);            
-
-
-    $select = 'select*from reserve_flight';
-    $result2 = mysqli_query($connect, $select);
-
+              "Economy",
+              "'.$_POST['Adult'].'",
+              "'.$_POST['child'].'",
+              "'.$_POST['price'].'",
+              "'.date('Y-m-d').'",
+              "'.$_POST['TrDate'].'")';
     
-      echo '<table border="1" cellpading="0" cellspacing="0">';
-      echo '<tr>'.'<td>'.'RID'.'</td>';
-      echo '<td>'.'User_ID'.'</td>';
-      echo '<td>'.'RFname'.'</td>';
-      echo '<td>'.'RLname'.'</td>';
-      echo '<td>'.'Class'.'</td>';
-      echo '<td>'.'adult_total'.'</td>';
-      echo '<td>'.'teen_total'.'</td>';
-      echo '<td>'.'Price'.'</td>';
-      echo '<td>'.'Date_reserve'.'</td>';
-      echo '<td>'.'Trv_date'.'</td>'.'</tr>';
-    
-
-    if($_SESSION['class'] == "economy"){
-     
-      $_SESSION['class'] = "economy";
-
-    while($row = mysqli_fetch_assoc($result2)){
-      echo '<tr>'.'<td>'."".'</td>';
-      echo '<td>'.$row['User_ID'].'</td>';
-      echo '<td>'.$row['RFname'].'</td>';
-      echo '<td>'.$row['RLname'].'</td>';
-      echo '<td>'.'Economy'.'</td>';
-      echo '<td>'.$row['adult_total'].'</td>';
-      echo '<td>'.$row['teen_total'].'</td>';
-      
-      
-      echo '<td>'.$price.'</td>';
-      echo '<td>'.$row['Date_reserve'].'</td>';
-      echo '<td>'.$row['Trv_date'].'</td>'.'</tr>';
-    }
-
-  }else if($_SESSION['class'] == "business"){
-    while($row = mysqli_fetch_assoc($result2)){
-      echo '<tr>'.'<td>'."".'</td>';
-      echo '<td>'.$row['User_ID'].'</td>';
-      echo '<td>'.$row['RFname'].'</td>';
-      echo '<td>'.$row['RLname'].'</td>';
-      echo '<td>'.'Business_Price'.'</td>';
-      echo '<td>'.$row['adult_total'].'</td>';
-      echo '<td>'.$row['teen_total'].'</td>';
-
-
-        
-      echo '<td>'.$price.'</td>';
-      echo '<td>'.$row['Date_reserve'].'</td>';
-      echo '<td>'.$row['Trv_date'].'</td>';
-    }
+  }else if($_SESSION['class']=="business"){
+    $sql = 'INSERT into reserve_flight values
+    ("","'.$_SESSION['User_ID'].'",
+              "'.$_POST['RFname'].'",
+              "'.$_POST['RLname'].'",
+              "Business",
+              "'.$_POST['Adult'].'",
+              "'.$_POST['child'].'",
+              "'.$_POST['price'].'",
+              "'.date('Y-m-d').'",
+              "'.$_POST['TrDate'].'")';
   }
-  echo '</table>';
-    
-      
-        mysqli_close($connect);
-        
-        
-    
 
+  $result = mysqli_query($connect, $sql);    
+     
+        mysqli_close($connect);
+  
 ?>
 
 <?php
