@@ -6,9 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
       <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $(".close-l-sidenav,.open-l-sidenav").on("click",function(){
+          var toggleWidth = ($(".l-sidenav").width()==0)?250:0;
+          $(".l-sidenav").width(toggleWidth);
+      });
+    });
+  </script>
+  <style>
+    /*sidemenu ด้านซ้าย*/
+    .l-sidenav {
+        position: fixed; 
+        z-index: 1040; 
+        top: 0; 
+        left: 0;    
+        height: 100%; 
+        width: 0; 
+        overflow-x: hidden; 
+    }   
+    .text-center {
+        text-align: center;
+    } 
+  </style>
 
   <script language="javascript">
         function check() {
@@ -47,7 +75,8 @@
         </div>
       </div>
     </nav>
-    <h1>insert_information</h1>
+    <h1 class="text-center text-primary">
+      <i class="fas fa-book-open"></i> Your Book</h1>
 
   <?php
 
@@ -60,54 +89,107 @@
 
       $_SESSION['class'] = "economy";
         while($row = mysqli_fetch_assoc($result)){
-          echo $row['FlightNo'];
-          echo '&nbsp;';
-          echo $row['Type'];
-          echo '&nbsp';
-          echo $row['FlightFrom'];
-          echo '&nbsp;';
-          echo $row['FlightTo'];
-          echo '&nbsp;';
-          echo $row['Distance'];
-          echo '&nbsp;';
-          echo $row['Arrive'];
-          echo '&nbsp;';
-          echo $row['Eco_Price'];
+
           echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
+          echo '<center>';
+          echo '<div class="form-row">';
+               echo '<div class="form-group col-sm-3">';
+                  echo $row['FlightNo'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+                  echo 'Type: ';
+                  echo $row['Type'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'From: ';
+               echo $row['FlightFrom'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'To: ';
+               echo $row['FlightTo'];
+               echo '</div>';
+          echo '</div>';
+
+          echo '<div class="form-row">';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Distance: ';
+               echo $row['Distance']; echo ' km.';
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Arrive: ';
+               echo $row['Arrive'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Class: Economy';
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Price';
+               echo $row['Eco_Price'];
+               echo '</div>';
+          echo '</div>';
+          echo '</center>';
+         
         }
         }else if($_SESSION['class'] == "business"){
          while($row = mysqli_fetch_assoc($result)){
 
-        echo $row['FlightNo'];
-        echo '&nbsp;';
-        echo $row['Type'];
-        echo '&nbsp';
-        echo $row['FlightFrom'];
-        echo '&nbsp;';
-        echo $row['FlightTo'];
-        echo '&nbsp;';
-        echo $row['Distance'];
-        echo '&nbsp;';
-        echo $row['Arrive'];
-        echo '&nbsp;';
-        echo $row['Business_Price'];
-        echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
+          echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
+          echo '<center>';
+          echo '<div class="form-row">';
+               echo '<div class="form-group col-sm-3">';
+                  echo $row['FlightNo'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+                  echo 'Type: ';
+                  echo $row['Type'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'From: ';
+               echo $row['FlightFrom'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'To: ';
+               echo $row['FlightTo'];
+               echo '</div>';
+          echo '</div>';
+
+          echo '<div class="form-row">';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Distance: ';
+               echo $row['Distance']; echo ' km.';
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Arrive: ';
+               echo $row['Arrive'];
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Class: Business';
+               echo '</div>';
+               echo '<div class="form-group col-sm-3">';
+               echo 'Price: ';
+               echo $row['Business_Price'];
+               echo '</div>';
+          echo '</div>';
+          echo '</center>';
          }
         }
       
 ?>
-
    <!-- <h1>Information</h1> -->
-      <h1>ข้อมูลผู้จอง </h1>  <br>
-      <label for="RFname">ชื่อผู้จอง</label>
-      <input type="text" name="RFname">
-      <br>
-      <label for="RLname">นามสกุลผู้จอง</label>
-      <input type="text" name="RLname">
-      <br><br>
+   <center>
+    <h1 class="text text-primary">Information. </h1>  <br>
 
-      ผู้ใหญ่  
-      <select name="Adult">
+     <div class="input-group">
+       <div class="input-group-prepend">
+        <span class="input-group-text">First and last name</span>
+     </div>
+       <input type="text" aria-label="RFname" class="form-control">
+      <input type="text" aria-label="RLname" class="form-control">
+    </div>
+<br>
+
+      <label for="Adult">Adult</label>
+      <select name="Adult" class="custom-select custom-select-lg">
         <option value="" selected>0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -116,7 +198,9 @@
         <option value="5">5</option>
         <option value="6">6</option>
         <option value="7">7</option>
-      </select>(อายุ &gt; 14 ปี)<br>
+      </select>
+      (อายุ &gt; 14 ปี)
+      <br>
       เด็ก  &nbsp&nbsp
       <select name="child">
         <option value="" selected>0</option>
@@ -132,7 +216,7 @@
      <input type="date" name="TrDate">
      
       <input type="submit" name="next" value="Next">
-
+      </center>
     </form>
 
 <?php
@@ -142,7 +226,12 @@
 }
 ?>
 
-</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
+
+
 </html>
