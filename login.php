@@ -69,14 +69,14 @@
                          <b>Login To<br> 
                          <i class="fas fa-plane-departure"></i> Airplane Modelling</b> </h1>
                     <br><br><br>
-                    <center>
+                    
                     <label for="email">E-mail:</label>
-                    <input type="email" name="email" id="email" class="form-control col-sm-5" placeholder="EMAIL" required> <br>
+                    <input type="email" name="email" id="email" class="form-control col-sm-8" placeholder="EMAIL" required> <br>
                     <label for="password">Password:</label>
-                    <input type="password" name="pass" id="password" class="form-control col-sm-5" placeholder="PASSWORD" required> <br>
+                    <input type="password" name="pass" id="password" class="form-control col-sm-8" placeholder="PASSWORD" required> <br>
                     <input type="submit" name="Login" class="btn btn-primary" value="LOGIN" onclick="return check1();"> <br> <br>
                     Don't have an account? <a href="register.php">Sign up now.</a>
-                    </center>
+                    
                 </div>
                 <div class="col-md-4"> </div>
             </div>
