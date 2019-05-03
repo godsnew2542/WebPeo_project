@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <style>
         .text-center {
             text-align: center;
@@ -19,22 +20,22 @@
     <script language="javascript">
         function check() {
             if (document.registration.FName.value == "") {
-                alert('กรุณากรอก ชื่อของคุณ ');
+                alert('Your name are empty.');
                 return false;
             } else if (document.registration.LName.value == "") {
-                alert('กรุณากรอก นามสกุลของคุณ ');
+                alert('Your lastname are empty. ');
                 return false;
             } else if (document.registration.email.value == "" && email == type("email")) {
-                alert('กรุณากรอก E-mail ของคุณ ');
+                alert('Your E-mail are empty. ');
                 return false;
             } else if (document.registration.password.value == "") {
-                alert('กรุณากรอก Password ของคุณ'); //มีความยาวอย่าน้อง 5ตัวขึ้นไป 
+                alert('Your Password are empty.'); //มีความยาวอย่าน้อง 5ตัวขึ้นไป 
                 return false;
             } else if (document.registration.phone.value == "" && phone == pattern("(\d{10})")) {
-                alert('กรุณากรอก หมายเลขโทรศัพท์ของคุณ');
+                alert('Your Phone are empty.');
                 return false;
             } else if (document.registration.card.value == "" && caed == pattern("(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})")) {
-                alert('กรุณากรอก เลขบัตรประชาชนของคุณ ');
+                alert('Your personal id are empty.  ');
                 return false;
             }
             if (!(document.registration.FName.value == "" &&
@@ -43,7 +44,7 @@
                     document.registration.password.value == "" &&
                     document.registration.phone.value == "" &&
                     document.registration.card.value == "")) {
-                return confirm('คุณแน่ใจแล้วใช่ไหม');
+                return confirm('Are you sure?');
             }
         }
     </script>
@@ -101,25 +102,30 @@
     ?>
         <form name="registration" action="" method="post">
             <div class="row">
-                <div class="col-md-3"> </div>
-                <div class="col-md-6">
-                    <h1 class="text-center"> <b>Register To Airline</b> </h1>
-                    FirstName: <br>
+                <div class="col-md-4"> </div>
+                <div class="col-md-8">
+                
+                    <h1 class="text-left text-primary"> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         Register To<br>
+                        <i class="fas fa-plane-departure"></i> Airplane Modelling</b> 
+                    </h1><br><br>
+                    
+                    <label for="FName">FirstName:</label>
                     <input name="FName" type="text" id="FName" class="form-control  col-md-6" placeholder="FIRSTNAME" pattern="[a-zA-Zก-ุฯ-๙\s]*" required> <br>
-                    LastName: <br>
+                    <label for="LName">LastName:</label>
                     <input name="LName" type="text" id="LName" class="form-control col-md-6" placeholder="LASTNAME" pattern="[a-zA-Zก-ุฯ-๙\s]*" required> <br>
-                    Email: <br>
+                    <label for="email">Email:</label>
                     <input name="email" type="email" id="email" class="form-control col-md-6" placeholder="EMAIL" required> <br>
-                    Passwoed: <br>
+                    <label for="pass">Passwoed:</label>
                     <input name="pass" type="password" id="password" class="form-control col-md-6" placeholder="ต้องมีอย่างน้อย 5 ตัวขึ้นไป" pattern= "[0-9]{5,100}" required><br>
-                    Phone: <br>
+                    <label for="phone">Phone:</label>
                     <input name="phone" type="text" id="phone" class="form-control col-md-6" placeholder="0981234567" pattern="(\d{10})" required> <br>
-                    Id Card: <br> <?php //เป็น พายมะรีคีย์ ซึ่งถ้าใส่ซ่ำจะ เกิดข้อผิดพาดไม่เข้า ดาต้าเบส
-                                    ?>
+                    <label for="id_card">Id Card:</label>
                     <input name="id_card" type="text" id="card" class="form-control col-md-6" class="mainform form-control" placeholder="1-1234-12345-12-1" pattern="(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})" required> <br>
-                    <input type="submit" name="submit" value="Register" onclick="return check();">
-                    <input type="reset" value="Cancel"> <br> <br>
+                    <input type="submit" class="btn btn-primary" name="submit" value="Register" onclick="return check();">
+                    <input type="reset" class="btn btn-light" value="Cancel"> <br> <br>
                     <p>Go to <a href='login.php'>Login.</a></p>
+
                 </div>
                 <div class="col-md-3"> </div>
             </div>
