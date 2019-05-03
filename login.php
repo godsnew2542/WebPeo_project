@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -64,14 +65,18 @@
                 <div class="col-md-4"> </div>
                 <div class="col-md-4">
                     <br><br><br>
-                    <h1 class="text-center"> <b>Login To Airline</b> </h1>
+                    <h1 class="text-center text-primary">
+                         <b>Login To<br> 
+                         <i class="fas fa-plane-departure"></i> Airplane Modelling</b> </h1>
                     <br><br><br>
-                    Email: <br>
+                    <center>
+                    <label for="email">E-mail:</label>
                     <input type="email" name="email" id="email" class="form-control col-sm-5" placeholder="EMAIL" required> <br>
-                    Password: <br>
+                    <label for="password">Password:</label>
                     <input type="password" name="pass" id="password" class="form-control col-sm-5" placeholder="PASSWORD" required> <br>
-                    <input type="submit" name="Login" value="LOGIN" onclick="return check1();"> <br> <br>
+                    <input type="submit" name="Login" class="btn btn-primary" value="LOGIN" onclick="return check1();"> <br> <br>
                     Don't have an account? <a href="register.php">Sign up now.</a>
+                    </center>
                 </div>
                 <div class="col-md-4"> </div>
             </div>
