@@ -23,6 +23,24 @@
     .text-center {
         text-align: center;
     } 
+    .form-row {
+      display:grid;
+      grid-template-columns: auto auto auto auto; 
+      text-align: center;     
+    }
+    .form-group{
+      padding: 25px;
+      font-size: 25px;
+      text-align: center;
+    }
+    input[type=date] {
+      width: 40%;
+      padding: 12px 20px;
+      margin: 15px 0;
+      border: 2px solid Gainsboro;
+      border-radius: 5px;
+      font-size:20px;      
+}
   </style>
 
   <script language="javascript">
@@ -62,9 +80,9 @@
         </div>
       </div><!---close navbar link--->
     </div><!---close navbar--->
-    <h1 class="text-center text-primary">
-      <i class="fas fa-book-open"></i> Your Book</h1>
-
+    <h1 class="text-center text-primary"><br>
+      <i class="fas fa-book-open"></i> Your Book</h1><br>
+<div style="border: 2px solid black">
   <?php
 
     echo '<form method="post" action="confirm_report.php" name="frmInsert">';
@@ -80,37 +98,37 @@
           echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
           echo '<center>';
           echo '<div class="form-row">';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                   echo $row['FlightNo'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                   echo 'Type: ';
                   echo $row['Type'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                echo 'From: ';
                echo $row['FlightFrom'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                echo 'To: ';
                echo $row['FlightTo'];
                echo '</div>';
           echo '</div>';
 
           echo '<div class="form-row">';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-10">';
                echo 'Distance: ';
                echo $row['Distance']; echo ' km.';
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-7">';
                echo 'Arrive: ';
                echo $row['Arrive'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-7">';
                echo 'Class: Economy';
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
-               echo 'Price';
+               echo '<div class="form-group col-sm-9">';
+               echo 'Price:';
                echo $row['Eco_Price'];
                echo '</div>';
           echo '</div>';
@@ -124,36 +142,36 @@
           echo '<input type="hidden" name="flight" value="'.$row['FlightNo'].'">';
           echo '<center>';
           echo '<div class="form-row">';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                   echo $row['FlightNo'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                   echo 'Type: ';
                   echo $row['Type'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                echo 'From: ';
                echo $row['FlightFrom'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-12">';
                echo 'To: ';
                echo $row['FlightTo'];
                echo '</div>';
           echo '</div>';
 
           echo '<div class="form-row">';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-10">';
                echo 'Distance: ';
                echo $row['Distance']; echo ' km.';
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-7">';
                echo 'Arrive: ';
                echo $row['Arrive'];
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-7">';
                echo 'Class: Business';
                echo '</div>';
-               echo '<div class="form-group col-sm-3">';
+               echo '<div class="form-group col-sm-9">';
                echo 'Price: ';
                echo $row['Business_Price'];
                echo '</div>';
@@ -163,21 +181,22 @@
         }
       
 ?>
+</div>
    <!-- <h1>Information</h1> -->
-   <center>
+   <center><br>
     <h1 class="text text-primary">Information. </h1>  <br>
 
-     <div class="input-group">
-       <div class="input-group-prepend">
-        <span class="input-group-text">First and last name</span>
-     </div>
-       <input type="text" name="RFname" class="form-control">
-       <input type="text" name="RLname" class="form-control">
-    </div>
+     <div class="input-group w-50">
+       <div class="input-group input-group-lg">
+        <span class="input-group-text">Name</span>
+    
+       <input type="text" name="RFname"  class="form-control" placeholder="First Name">
+       <input type="text" name="RLname" class="form-control" placeholder="Last Name">
+     </div></div>
 <br>
 
-      <label for="Adult">Adult</label>
-      <select name="Adult" class="custom-select custom-select-lg">
+      <label for="Adult">Adult&nbsp;&nbsp;</label>
+      <select name="Adult" class="custom-select w-25">
         <option value="" selected>0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -187,24 +206,24 @@
         <option value="6">6</option>
         <option value="7">7</option>
       </select>
-      (อายุ &gt; 14 ปี)
+      (Age &gt; 14 )<br>
       <br>
-      เด็ก  &nbsp&nbsp
-      <select name="child">
+
+      <label for="child">Child&nbsp;&nbsp;</label>  
+      <select name="child" class="custom-select w-25">
         <option value="" selected>0</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-      </select>(3-14 ปี)<br>
-      <br><br>
+      </select>(Age 3-14 )<br>
+      <br>
 
-     วันที่เดินทาง
-     <input type="date" name="TrDate">
-     
-      <input type="submit" name="next" value="Next">
-      </center>
+     <label for="Trdate">Traveling Date</label>
+     <input type="date" name="TrDate" >
+     <input type="submit" class="btn btn-primary" name="next" value="Next">
+    </center>
     </form>
 
 <?php
