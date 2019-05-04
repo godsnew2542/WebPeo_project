@@ -97,7 +97,7 @@
           }
           echo '</select>';
           ?>
-          <br><b>Return to Home Page</b>
+          <br><b>Back to Home Page</b>
           <br>Click here to <a href='Homepage.php'>Homepage</a>
         </div><!---close Flight schedule--->
         <div class="col-md-3"></div>
