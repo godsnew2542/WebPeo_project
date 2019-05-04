@@ -88,15 +88,18 @@
                             echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
                             echo '<td>&nbsp'.'<select name="Class" value="'.$row['Class'].'">
                                     <option value="" selected>-------</option>
-                                    <option value="economy">Economy</option>
-                                    <option value="business">Business</option>
+                                    <option value="Economy">Economy</option>
+                                    <option value="Business">Business</option>
                                     </select>'.'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Price'].'">'.'&nbsp</td></tr>';
+                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Price'].'">
+                                    <input type="hidden" name="Price" value="'.$row['Price'].'">'.'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Date_reserve'].'">'.'&nbsp</td></tr>';
+                            echo '<td>&nbsp'.'<input type="text" name="Date_reserve" disabled="disabled" value="'.$row['Date_reserve'].'">
+                                    <input type="hidden" name="Date_reserve" value="'.$row['Date_reserve'].'">'.'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Trv_date'].'">'.'&nbsp</td></tr>';
+                            echo '<td>&nbsp'.'<input type="date" name="Trv_date">
+                                    <input type="hidden" name="Trv_date" value="'.$row['Trv_date'].'">'.'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
                             echo '<td>&nbsp'.'<select name="adult_total" value="'.$row['adult_total'].'">
                                     <option value="" selected>0</option>
@@ -136,12 +139,12 @@
     }
     ?>
 </body>
+<!---Button BacktoTop--->
+<a style="display:scroll;position:fixed;bottom:5px;right:5px;" class="backtotop" href="#" rel="nofollow" title="Back to Top"><img style="border:0;" src="http://2.bp.blogspot.com/-fBSW--O5-eA/UIao-OcGSCI/AAAAAAAAEI8/-GomJZ4SCm4/s1600/uptop2.png"/></a>
 <!---Button Update-->
 <script language="JavaScript">
   function confirmUpdate(){
     return confirm('Are you sure you want to update this?');
   }
 </script>
-<!---Button BacktoTop--->
-<a style="display:scroll;position:fixed;bottom:5px;right:5px;" class="backtotop" href="#" rel="nofollow" title="Back to Top"><img style="border:0;" src="http://2.bp.blogspot.com/-fBSW--O5-eA/UIao-OcGSCI/AAAAAAAAEI8/-GomJZ4SCm4/s1600/uptop2.png"/></a>
 </html>
