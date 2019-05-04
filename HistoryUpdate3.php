@@ -66,6 +66,8 @@
                                           RLname = "'.$_POST["RLname"].'" ,
                                           Class = "'.$_POST["Class"].'",
                                           Price = "'.$_POST["Price"].'",
+                                          Date_reserve = "'.$_POST["Date_reserve"].'",
+                                          Trv_date = "'.$_POST["Trv_date"].'",
                                           adult_total = "'.$_POST["adult_total"].'",
                                           teen_total = "'.$_POST["teen_total"].'"
                                           where RID = "'.$_POST["idu"].'"';
