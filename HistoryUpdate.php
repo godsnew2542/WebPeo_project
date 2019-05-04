@@ -121,7 +121,7 @@
                                     <option value="5">5</option>
                                     </select>&nbsp&nbsp&nbsp(3-14 ปี)'.'&nbsp</td></tr>';
                             echo '<td>';
-                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
+                            echo '<input type="hidden" name="idu2" value="'.$row['RID'].'">'."\n";
                             echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
                             echo '</table></form>';
                         }
