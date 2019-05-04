@@ -82,26 +82,33 @@
                             echo '<form method="post" name="frmUpdate'.$row['RID'].'" action="HistoryUpdate3.php">';
                             echo '<table  border="1">';
                             echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="RFname" value="'.$row['RFname'].'">';
                             echo '<td>&nbsp'.$_POST['RFname'].'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="RLname" value="'.$row['RLname'].'">';
                             echo '<td>&nbsp'.$_POST['RLname'].'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Class" value="'.$row['Class'].'">';
                             echo '<td>&nbsp'.$_POST['Class'].'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Price" value="'.$row['Price'].'">';
                             echo '<td>&nbsp'.$_POST['Price'].'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Date_reserve" value="'.$row['Date_reserve'].'">';
                             echo '<td>&nbsp'.$_POST['Date_reserve'].'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Trv_date" value="'.$row['Trv_date'].'">';
                             echo '<td>&nbsp'.$_POST['Trv_date'].'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="adult_total" value="'.$row['adult_total'].'">';
                             echo '<td>&nbsp'.$_POST['adult_total'].'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="teen_total" value="'.$row['teen_total'].'">';
                             echo '<td>&nbsp'.$_POST['teen_total'].'&nbsp</td></tr>';
                             echo '</table><table border="0"><br><tr><td>';
-                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
-                            echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();">';
-                            echo '<td><input name="Back" type="button" value=" Back"onClick="jascript:history.go(-2);">
-                            </td></tr>'."\n";
+                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">';
+                            echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>';
+                            echo '<td><input name="Back" type="button" value=" Back"onClick="jascript:history.go(-2);"></td></tr>'."\n";
                             echo '</table></form>';
                         }
                     }
