@@ -53,7 +53,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
             <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
-            <?php echo '<a href="History.php">History</a>'; ?> &emsp;
+            <?php echo '<a href="#">History</a>'; ?> &emsp;
             <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div><!---close navbar link--->
@@ -86,22 +86,14 @@
                             echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
                             echo '<td>&nbsp'.'<input type="text" name="RLname" value="'.$row['RLname'].'">'.'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<select name="Class" value="'.$row['Class'].'">
+                            echo '<td>&nbsp'.'<select name="Class">
                                     <option value="" selected>-------</option>
                                     <option value="Economy">Economy</option>
                                     <option value="Business">Business</option>
                                     </select>'.'&nbsp</td></tr>';
-                            echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<input type="text" name="Price" disabled="disabled" value="'.$row['Price'].'">
-                                    <input type="hidden" name="Price" value="'.$row['Price'].'">'.'&nbsp</td></tr>';
-                            echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<input type="text" name="Date_reserve" disabled="disabled" value="'.$row['Date_reserve'].'">
-                                    <input type="hidden" name="Date_reserve" value="'.$row['Date_reserve'].'">'.'&nbsp</td></tr>';
-                            echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<input type="date" name="Trv_date">
-                                    <input type="hidden" name="Trv_date" value="'.$row['Trv_date'].'">'.'&nbsp</td></tr>';
+                           
                             echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<select name="adult_total" value="'.$row['adult_total'].'">
+                            echo '<td>&nbsp'.'<select name="adult_total">
                                     <option value="" selected>0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -112,7 +104,7 @@
                                     <option value="7">7</option>
                                     </select>&nbsp&nbsp&nbsp(อายุ &gt; 14 ปี)'.'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
-                            echo '<td>&nbsp'.'<select name="teen_total" value="'.$row['teen_total'].'">
+                            echo '<td>&nbsp'.'<select name="teen_total">
                                     <option value="" selected>0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -121,7 +113,7 @@
                                     <option value="5">5</option>
                                     </select>&nbsp&nbsp&nbsp(3-14 ปี)'.'&nbsp</td></tr>';
                             echo '<td>';
-                            echo '<input type="hidden" name="idu2" value="'.$row['RID'].'">'."\n";
+                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
                             echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
                             echo '</table></form>';
                         }
