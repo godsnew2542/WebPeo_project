@@ -128,7 +128,7 @@
       <br><br>
       <button type="submit" class="btn btn-primary" name="Search">Search</button>
       <br><br>
-      <b>ดูตารางการบิน</b>
+      <b>See Flight Schedules</b>
       <br>Click here to <a href='FlightSchedule.php'>Flight Schedule</a>
       </div><!---close FlightClass--->
       <div class="col-md-2"></div>
