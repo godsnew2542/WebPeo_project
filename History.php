@@ -101,15 +101,15 @@
             echo '<table  border="0"><tr><td>';
             echo '<form name="frmDelete'.$row['RID'].'" action="HistoryDelete.php" method="post">';
             echo '<input type="hidden" name="idd" value="'.$row['RID'].'">';
-            echo '&nbsp&nbsp&nbsp<input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp
+            echo '&nbsp&nbsp&nbsp<input name="smtDelete" class="btn btn-primary" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp
                   </form></td><td>';
             echo '<form name="frmUpdate'.$row['RID'].'" action="HistoryUpdate.php" method="post">';
             echo '<input type="hidden" name="idu" value="'.$row['RID'].'">';
-            echo '&nbsp&nbsp&nbsp<input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp
+            echo '<input name="smtUpdate" class="btn btn-primary" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp
                   </form></td><td>';
             echo '<form name="frmPrint'.$row['RID'].'" action="HistoryPrint.php" method="post">';
             echo '<input type="hidden" name="idp" value="'.$row['RID'].'">';
-            echo '&nbsp&nbsp&nbsp<input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp
+            echo '<input name="smtPrint" class="btn btn-primary" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp
                   </form>';
             echo '</td></tr></table><br>';
           }
@@ -118,11 +118,11 @@
         </div></div><!---close row ReDetail---></div><!---close center--->
       <div class="col-md-3"></div>
     </div><!---close ROW--->
-    <?php
-    } else {
-      header("location:login.php");
-    }
-    ?>
+  <?php
+  } else {
+    header("location:login.php");
+  }
+  ?>
 </body>
 <!---Button Delete-->
 <script language="JavaScript">
