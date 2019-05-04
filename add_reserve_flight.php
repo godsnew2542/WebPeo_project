@@ -124,6 +124,7 @@
   if($_SESSION['class']=="economy"){
     $sql = 'INSERT into reserve_flight values
     ("","'.$_SESSION['User_ID'].'",
+              "'.$_POST['FlightNo'].'",
               "'.$_POST['RFname'].'",
               "'.$_POST['RLname'].'",
               "Economy",
@@ -136,6 +137,7 @@
   }else if($_SESSION['class']=="business"){
     $sql = 'INSERT into reserve_flight values
     ("","'.$_SESSION['User_ID'].'",
+              "'.$_POST['FlightNo'].'",
               "'.$_POST['RFname'].'",
               "'.$_POST['RLname'].'",
               "Business",
