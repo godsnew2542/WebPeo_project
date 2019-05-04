@@ -53,7 +53,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
             <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
-            <?php echo '<a href="#">History</a>'; ?> &emsp;
+            <?php echo '<a href="History.php">History</a>'; ?> &emsp;
             <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div><!---close navbar link--->
@@ -121,7 +121,7 @@
                                     <option value="5">5</option>
                                     </select>&nbsp&nbsp&nbsp(3-14 ปี)'.'&nbsp</td></tr>';
                             echo '<td>';
-                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
+                            echo '<input type="hidden" name="idu2" value="'.$row['RID'].'">'."\n";
                             echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
                             echo '</table></form>';
                         }

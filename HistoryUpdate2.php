@@ -53,7 +53,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
             <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
-            <?php echo '<a href="#">History</a>'; ?> &emsp;
+            <?php echo '<a href="History.php">History</a>'; ?> &emsp;
             <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div><!---close navbar link--->
@@ -61,31 +61,76 @@
     <div class="row"><!---ROW--->
         <div class="col-md-3"></div>
         <div class="col-md-6"><!---center--->
+            <div class="row"><!---row History Update--->
+                <div class="col-md-2"></div>
+                <div class="col-md-8"><!---center--->
+                    <h1>History Update</h1>
+                </div><!---close center--->
+                <div class="col-md-2"></div>
+            </div><!---close row History Update--->
+            <div class="row"><!---row Update--->
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                <?php
+                    $sql = 'select * from reserve_flight where RID = '.$_POST['idu2'].';';
+                    $result = mysqli_query($connect,$sql);
+                    if (!$result) {
+                        echo mysqli_error() . '<br>';
+                        die('Can not access database!');
+                    }else{
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo '<form method="post" name="frmUpdate'.$row['RID'].'" action="HistoryUpdate3.php">';
+                            echo '<table  border="1">';
+                            echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="RFname" value="'.$row['RFname'].'">';
+                            echo '<td>&nbsp'.$_POST['RFname'].'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="RLname" value="'.$row['RLname'].'">';
+                            echo '<td>&nbsp'.$_POST['RLname'].'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Class" value="'.$row['Class'].'">';
+                            echo '<td>&nbsp'.$_POST['Class'].'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Price" value="'.$row['Price'].'">';
+                            echo '<td>&nbsp'.$_POST['Price'].'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Date_reserve" value="'.$row['Date_reserve'].'">';
+                            echo '<td>&nbsp'.$_POST['Date_reserve'].'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="Trv_date" value="'.$row['Trv_date'].'">';
+                            echo '<td>&nbsp'.$_POST['Trv_date'].'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="adult_total" value="'.$row['adult_total'].'">';
+                            echo '<td>&nbsp'.$_POST['adult_total'].'&nbsp</td></tr>';
+                            echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
+                            echo '<input type="hidden" name="teen_total" value="'.$row['teen_total'].'">';
+                            echo '<td>&nbsp'.$_POST['teen_total'].'&nbsp</td></tr>';
+                            echo '</table><table border="0"><br><tr><td>';
+                            echo '<input type="hidden" name="idu3" value="'.$row['RID'].'">';
+                            echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>';
+                            echo '<td><input name="Back" type="button" value=" Back"onClick="jascript:history.go(-2);"></td></tr>'."\n";
+                            echo '</table></form>';
+                        }
+                    }
+                ?>
+                </div>
+                <div class="col-md-2"></div>
+            </div><!---row Update--->
+        </div><!---close center--->
+        <div class="col-md-3"></div>
+        </div><!---close ROW--->
         <?php
-        $sql = 'update reserve_flight set RFname = "'.$_POST["RFname"].'" ,
-                                          RLname = "'.$_POST["RLname"].'" ,
-                                          Class = "'.$_POST["Class"].'",
-                                          adult_total = "'.$_POST["adult_total"].'",
-                                          teen_total = "'.$_POST["teen_total"].'"
-                                          where RID = '.$_POST['idu'].';';
-        $result = mysqli_query($connect,$sql);
-        if($result){
-            echo '<font size="23" color="red"><b>Complete</b></font><br>';
-            echo "<b>กลับไปยังประวัติการจองของคุณ</b>";
-            echo "<br>Click here to <a href='History.php'>History</a>";
-        }else{
-            echo '<font size="23" color="red"><b>No Complete</b></font><br>';
-            echo "<b>กลับไปยังหน้าแรก</b>";
-            echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
-        }
-        ?>
-      </div><!---close center--->
-      <div class="col-md-3"></div>
-    </div><!---close ROW--->
-    <?php
-    } else {
+    }else {
       header("location:login.php");
     }
     ?>
 </body>
+<!---Button BacktoTop--->
+<a style="display:scroll;position:fixed;bottom:5px;right:5px;" class="backtotop" href="#" rel="nofollow" title="Back to Top"><img style="border:0;" src="http://2.bp.blogspot.com/-fBSW--O5-eA/UIao-OcGSCI/AAAAAAAAEI8/-GomJZ4SCm4/s1600/uptop2.png"/></a>
+<!---Button Update-->
+<script language="JavaScript">
+  function confirmUpdate(){
+    return confirm('Are you sure you want to update this?');
+  }
+</script>
 </html>
