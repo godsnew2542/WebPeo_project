@@ -72,7 +72,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                 <?php
-                    $sql = 'select * from reserve_flight where RID = '.$_POST['idu'].';';
+                    $sql = 'select * from reserve_flight where RID = '.$_POST['idu2'].';';
                     $result = mysqli_query($connect,$sql);
                     if (!$result) {
                         echo mysqli_error() . '<br>';
@@ -106,7 +106,7 @@
                             echo '<input type="hidden" name="teen_total" value="'.$row['teen_total'].'">';
                             echo '<td>&nbsp'.$_POST['teen_total'].'&nbsp</td></tr>';
                             echo '</table><table border="0"><br><tr><td>';
-                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">';
+                            echo '<input type="hidden" name="idu3" value="'.$row['RID'].'">';
                             echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>';
                             echo '<td><input name="Back" type="button" value=" Back"onClick="jascript:history.go(-2);"></td></tr>'."\n";
                             echo '</table></form>';
