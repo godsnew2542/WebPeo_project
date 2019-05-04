@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!---navbar--->
   <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
   <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
@@ -53,7 +54,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
             <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
-            <?php echo '<a href="#">History</a>'; ?> &emsp;
+            <?php echo '<a href="History.php">History</a>'; ?> &emsp;
             <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div><!---close navbar link--->
@@ -64,7 +65,7 @@
             <div class="row"><!---row History Update--->
                 <div class="col-md-2"></div>
                 <div class="col-md-8"><!---center--->
-                    <h1>History Update</h1>
+                    <h1 class="text text-primary"><i class="fas fa-plane-departure"></i> History Update</h1>
                 </div><!---close center--->
                 <div class="col-md-2"></div>
             </div><!---close row History Update--->
@@ -114,7 +115,7 @@
                                     </select>&nbsp&nbsp&nbsp(3-14 ปี)'.'&nbsp</td></tr>';
                             echo '<td>';
                             echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
-                            echo '<input name="smtUpdate'.$row['RID'].'" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
+                            echo '<input name="smtUpdate'.$row['RID'].'" class="btn btn-primary" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
                             echo '</table></form>';
                         }
                     }

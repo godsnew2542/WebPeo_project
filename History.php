@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!---navbar--->
   <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
   <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
@@ -62,15 +63,15 @@
       <div class="col-md-3"></div>
       <div class="col-md-6"><!---center--->
       <div class="row"><!---row History--->
-        <div class="col-md-6"></div>
-        <div class="col-md-2"><!---center--->
-        <h1>History</h1>
+        <div class="col-md-4"></div>
+        <div class="col-md-8 "><!---center--->
+        <h1 class="text text-primary">Booking History <i class="fas fa-plane-departure"></i></h1>
         </div><!---close center--->
-        <div class="col-md-6"></div>
-      </div><!---close row History--->
+
+      </div><!--close row History-->
       <div class="row"><!---row ReDetail--->
-        <div class="col-md-4"><a>Reservation details</a></div>
-        <div class="col-md-8">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
         <?php
         $sql = "select * from reserve_flight where User_ID = '".$_SESSION['User_ID']."' ";
         $result = mysqli_query($connect, $sql);
@@ -114,6 +115,7 @@
                   </form><br>';
             echo '</td></tr></table></div></div><br>';
           }
+          
         }?>
         </div></div><!---close row ReDetail---></div><!---close center--->
       <div class="col-md-3"></div>
