@@ -130,7 +130,7 @@
               "'.$_POST['Adult'].'",
               "'.$_POST['child'].'",
               "'.$_POST['price'].'",
-              "'.date('Y-m-d').'",
+              "'.date('Y-m-d H:i:s').'",
               "'.$_POST['TrDate'].'")';
     
   }else if($_SESSION['class']=="business"){
@@ -142,7 +142,7 @@
               "'.$_POST['Adult'].'",
               "'.$_POST['child'].'",
               "'.$_POST['price'].'",
-              "'.date('Y-m-d').'",
+              "'.date('Y-m-d H:i:s').'",
               "'.$_POST['TrDate'].'")';
   }
 
