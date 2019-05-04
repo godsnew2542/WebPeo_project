@@ -56,7 +56,7 @@
       <!---navbar link--->
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
-          <?php echo '<a href="#">Homepage</a>'; ?> &emsp;
+          <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
           <?php echo '<a href="History.php">History</a>'; ?> &emsp;
           <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
