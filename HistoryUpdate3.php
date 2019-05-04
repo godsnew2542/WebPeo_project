@@ -70,7 +70,7 @@
                                           Trv_date = "'.$_POST["Trv_date"].'",
                                           adult_total = "'.$_POST["adult_total"].'",
                                           teen_total = "'.$_POST["teen_total"].'"
-                                          where RID = "'.$_POST["idu2"].'"';
+                                          where RID = "'.$_POST["idu3"].'"';
         $result = mysqli_query($connect,$sql);
         if($result){
             echo '<font size="23" color="red"><b>Complete</b></font><br>';
