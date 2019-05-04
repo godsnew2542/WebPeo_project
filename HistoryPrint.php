@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>History</title>
+  <title>Airplane Modelling</title>
   <!---Required meta tags--->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -97,16 +97,17 @@
             echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
             echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table>';
           }
-          echo '<br><button onclick="myFunction()">Print this page</button>';
+          echo '<br>&nbsp&nbsp&nbsp<button class="btn btn-primary" onclick="myFunction()">Print this page</button>
+                &nbsp&nbsp&nbsp<input name="Back" type="button" class="btn btn-primary" value=" Back"onClick="jascript:history.go(-1);">';
         }?>
         </div></div><!---close row ReDetail---></div><!---close center--->
       <div class="col-md-3"></div>
     </div><!---close ROW--->
-    <?php
-    } else {
-      header("location:login.php");
-    }
-    ?>
+  <?php
+  } else {
+    header("location:login.php");
+  }
+  ?>
 </body>
 <!---Button Print-->
 <script>
