@@ -60,6 +60,10 @@
             echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
 
         } else {
+            if($_POST['class'] == "0"){
+                echo "Please select class <br>";
+                echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
+            }
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<form action="insert_information.php" name="insertfrm'.$row['FlightNo'].'" method="post">';
                 echo '<div class="container">';
@@ -125,9 +129,6 @@
                         echo '</div>';
                     echo '</div>';
 
-                }else{
-                    echo "Please select class <br>";
-                    echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
                 }
             // echo '<div class="form-group col-md-6"></div>';
             // echo '<div class="form-group col-md-6"></div>';
