@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Homepage</title>
+  <title>Airplane Modelling</title>
   <!---Required meta tags--->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -97,7 +97,7 @@
           }
           echo '</select>';
           ?>
-          <br><b>Return to Home Page</b>
+          <br><b>Back to Home Page</b>
           <br>Click here to <a href='Homepage.php'>Homepage</a>
         </div><!---close Flight schedule--->
         <div class="col-md-3"></div>

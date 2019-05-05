@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>History</title>
+  <title>Airplane Modelling</title>
   <!---Required meta tags--->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -59,28 +59,27 @@
       </div><!---close navbar link--->
     </div><!---close navbar--->
     <div class="row"><!---ROW--->
-        <div class="col-md-3"></div>
-        <div class="col-md-6"><!---center--->
+        <div class="col-md-5"></div>
+        <div class="col-md-7"><!---center--->
         <?php
         $sql = 'Delete from reserve_flight where RID = '.$_POST['idd'].';';
         $result = mysqli_query($connect,$sql);
         if($result){
             echo '<font size="23" color="red"><b>Complete</b></font><br>';
-            echo "<b>กลับไปยังประวัติการจองของคุณ</b>";
+            echo "<b>Back to your reservation history.</b>";
             echo "<br>Click here to <a href='History.php'>History</a>";
         }else{
             echo '<font size="23" color="red"><b>No Complete</b></font><br>';
-            echo "<b>กลับไปยังหน้าแรก</b>";
-            echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
+            echo "<b>Back to your reservation history.</b>";
+            echo "<br>Click here to <a href='History.php'>History</a>";
         }
         ?>
       </div><!---close center--->
-      <div class="col-md-3"></div>
     </div><!---close ROW--->
-    <?php
-    } else {
-      header("location:login.php");
-    }
-    ?>
+  <?php
+  } else {
+    header("location:login.php");
+  }
+  ?>
 </body>
 </html>

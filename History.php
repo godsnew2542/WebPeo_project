@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title>History</title>
+  <title>Airplane Modelling</title>
   <!---Required meta tags--->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -54,7 +54,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav px-md-5 ml-auto">
           <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
-          <?php echo '<a href="#">History</a>'; ?> &emsp;
+          <?php echo '<a href="History.php">History</a>'; ?> &emsp;
           <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
       </div><!---close navbar link--->
@@ -63,8 +63,8 @@
       <div class="col-md-3"></div>
       <div class="col-md-6"><!---center--->
       <div class="row"><!---row History--->
-        <div class="col-md-4"></div>
-        <div class="col-md-8 "><!---center--->
+        <div class="col-md-3"></div>
+        <div class="col-md-9 "><!---center--->
         <h1 class="text text-primary">Booking History <i class="fas fa-plane-departure"></i></h1>
         </div><!---close center--->
 
@@ -80,8 +80,6 @@
           die('Can not access database!');
         } else {
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div class="row">';
-            echo '<div class="col-md-9">';
             echo '<table  border="1">';
             echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
             echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
@@ -98,33 +96,33 @@
             echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
             echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
             echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table></div>';
+            echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table>';
             //submit
-            echo '<div class="col-md-3"><table  border="1"><tr><td>&nbsp&nbsp&nbsp&nbsp';
+            echo '<table  border="0"><tr><td>';
             echo '<form name="frmDelete'.$row['RID'].'" action="HistoryDelete.php" method="post">';
-            echo '<input type="hidden" name="idd" value="'.$row['RID'].'">'."\n";
-            echo '<input name="smtDelete" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp&nbsp&nbsp
-                  </form>';
+            echo '<input type="hidden" name="idd" value="'.$row['RID'].'">';
+            echo '&nbsp&nbsp&nbsp<input name="smtDelete" class="btn btn-primary" type="submit" value="Delete" onClick=" return confirmDelete();">&nbsp&nbsp&nbsp
+                  </form></td><td>';
             echo '<form name="frmUpdate'.$row['RID'].'" action="HistoryUpdate.php" method="post">';
-            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
-            echo '<input name="smtUpdate" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp&nbsp&nbsp
-                  </form>';
+            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">';
+            echo '<input name="smtUpdate" class="btn btn-primary" type="submit" value="Update" onClick="return confirmUpdate();">&nbsp&nbsp&nbsp
+                  </form></td><td>';
             echo '<form name="frmPrint'.$row['RID'].'" action="HistoryPrint.php" method="post">';
-            echo '<input type="hidden" name="idp" value="'.$row['RID'].'">'."\n";
-            echo  '<input name="smtPrint" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp&nbsp
-                  </form><br>';
-            echo '</td></tr></table></div></div><br>';
+            echo '<input type="hidden" name="idp" value="'.$row['RID'].'">';
+            echo '<input name="smtPrint" class="btn btn-primary" type="submit" value="Print" onClick="return confirmPrint();">&nbsp&nbsp&nbsp
+                  </form>';
+            echo '</td></tr></table><br>';
           }
           
         }?>
         </div></div><!---close row ReDetail---></div><!---close center--->
       <div class="col-md-3"></div>
     </div><!---close ROW--->
-    <?php
-    } else {
-      header("location:login.php");
-    }
-    ?>
+  <?php
+  } else {
+    header("location:login.php");
+  }
+  ?>
 </body>
 <!---Button Delete-->
 <script language="JavaScript">

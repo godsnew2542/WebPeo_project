@@ -4,13 +4,36 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Title Page</title>
-        <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
-  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <title>Airplane Modelling</title>
+        !---Bootstrap CSS--->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!---navbar--->
+  <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
+  <!---navbar button--->
+  <script type="text/javascript">
+    $(function(){
+      $(".close-l-sidenav,.open-l-sidenav").on("click",function(){
+          var toggleWidth = ($(".l-sidenav").width()==0)?250:0;
+          $(".l-sidenav").width(toggleWidth);
+      });
+    });
+  </script>
+  <style>
+    /*sidemenu ด้านซ้าย*/
+    .l-sidenav {
+        position: fixed; 
+        z-index: 1040; 
+        top: 0; 
+        left: 0;    
+        height: 100%; 
+        width: 0; 
+        overflow-x: hidden; 
+    }   
+  </style>
 
   <script language="javascript">
         function check() {
@@ -86,25 +109,25 @@
 
   if (isset($_SESSION['User'])) {
     ?>
-     <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><?php echo '&nbsp' . '&nbsp' . $_SESSION['User'] ?></a>
+     <!---navbar--->
+     <div class="navbar navbar-light bg-lightnavbar navbar-expand-lg navbar-dark bg-dark">
+      <!---navbar name--->
+      <a class="navbar-brand" href="#">
+        <?php echo $_SESSION['User'] ?>
+      </a>
+      <!---navbar button--->
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!---navbar link--->
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav px-md-5 ml-auto">
+          <?php echo '<a href="Homepage.php">Homepage</a>'; ?> &emsp;
+          <?php echo '<a href="History.php">History</a>'; ?> &emsp;
+          <?php echo '<a href="logout.php?logout">Logout</a>'; ?>
         </div>
-        <div class="collapse navbar-collapse " id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="Homepage.php">Homepage</a></li>
-            <li><a href="History.php">History</a></li>
-            <li><a href="logout.php?logout">Logout</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </div><!---close navbar link--->
+    </div><!---close navbar--->
     <br><br><br>
     <div style="display:none;" id="myDiv" class="animate-bottom">
   <h1 class="text text-primary">Success!!</h1>
@@ -112,12 +135,12 @@
   <br><br><br>
   <p>Back to <a href="Homepage.php">Homepage</a></p>
 </div>
-    
+<!--
     <div class="text-center">
   <div class="spinner-border" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-</div>
+</div>-->
 <?php
   require('db.php');
  
