@@ -80,7 +80,7 @@
           die('Can not access database!');
         } else {
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<table  border="1">';
+            echo '<table  border="3" bordercolor="blue">';
             echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
             echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
             echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
