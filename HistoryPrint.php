@@ -95,7 +95,8 @@
             echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
             echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
             echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr></table>';
+            echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr>';
+            echo '</table>';
           }
           echo '<br><button onclick="myFunction()">Print this page</button>';
         }?>
