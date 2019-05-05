@@ -5,6 +5,8 @@
   <!---Required meta tags--->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!---รูป--->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!---Bootstrap CSS--->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -67,11 +69,11 @@
       <div class="col-md-3"></div>
       <div class="col-md-6"><!---center--->
         <div class="row"><!---row Homepage--->
-          <div class="col-md-3"></div>
-          <div class="col-md-6"><!---center--->
-            <h1>Flight Schedule</h1>
+          <div class="col-md-2"></div>
+          <div class="col-md-8"><!---center--->
+            <font class="text text-primary"><h1><i class="fas fa-plane"></i>Flight Schedule</h1></font>
           </div><!---close center--->
-          <div class="col-md-3"></div>
+          <div class="col-md-2"></div>
         </div><!---close row Homepage--->
         <div class="row"><!---row Flight schedule--->
         <div class="col-md-3"></div>
@@ -83,7 +85,7 @@
             echo mysql_error().'<br>';
             die('Can not access database!');
           }else{
-              echo '<table  border="1">';
+              echo '<table border="3" bordercolor="blue">';
               echo '<tr><td>'.'&nbsp<b>From</b>&nbsp'.'</td>';
               echo '<td>'.'&nbsp<b>---></b>&nbsp'.'</td>';
               echo '<td>'.'&nbsp<b>To</b>&nbsp'.'</td>'.'</tr>';
