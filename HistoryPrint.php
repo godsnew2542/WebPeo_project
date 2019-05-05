@@ -87,6 +87,8 @@
             echo '<b>'.'No'.'</b>&nbsp'.$row['FlightNo'].'&nbsp&nbsp&nbsp';
             echo '<b>'.'From'.'</b>&nbsp'.$row['FlightFrom'].'&nbsp&nbsp&nbsp';
             echo '<b>'.'To'.'</b>&nbsp'.$row['FlightTo'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
+            echo '<b>'.'Distance'.'</b>&nbsp'.$row['Distance'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'Take'.'</b>&nbsp'.$row['Depart'].'-'.$row['Arrive'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
             echo '<b>'.'FirstName'.'</b>&nbsp'.$row['RFname'].'&nbsp&nbsp&nbsp';
             echo '<b>'.'LastName'.'</b>&nbsp'.$row['RLname'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
             echo '<b>'.'Class'.'</b>&nbsp'.$row['Class'].'&nbsp&nbsp&nbsp';
