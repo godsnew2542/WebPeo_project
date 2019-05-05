@@ -69,11 +69,11 @@
       <div class="col-md-3"></div>
       <div class="col-md-6"><!---center--->
         <div class="row"><!---row Homepage--->
-          <div class="col-md-3"></div>
-          <div class="col-md-6"><!---center--->
-            <h1><i class="fas fa-plane"></i>Flight Schedule</h1>
+          <div class="col-md-2"></div>
+          <div class="col-md-8"><!---center--->
+            <font class="text text-primary"><h1><i class="fas fa-plane"></i>Flight Schedule</h1></font>
           </div><!---close center--->
-          <div class="col-md-3"></div>
+          <div class="col-md-2"></div>
         </div><!---close row Homepage--->
         <div class="row"><!---row Flight schedule--->
         <div class="col-md-3"></div>
