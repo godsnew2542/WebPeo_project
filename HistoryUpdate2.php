@@ -179,7 +179,7 @@
           $result1 = mysqli_query($connect, $sql1);
 
           if($result1){
-            echo '<font size="23" color="red"><b>Complete</b></font><br>';
+            echo '<font size="23" class="text-primary"><b>Complete</b></font><br>';
             echo "<b>กลับไปยังประวัติการจองของคุณ</b>";
             echo "<br>Click here to <a href='History.php'>History</a>";
         }else{

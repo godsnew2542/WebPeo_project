@@ -65,7 +65,7 @@
         $sql = 'Delete from reserve_flight where RID = '.$_POST['idd'].';';
         $result = mysqli_query($connect,$sql);
         if($result){
-            echo '<font size="23" color="red"><b>Complete</b></font><br>';
+            echo '<font size="23" class="text-primary"><b>Complete</b></font><br>';
             echo "<b>Back to your reservation history.</b>";
             echo "<br>Click here to <a href='History.php'>History</a>";
         }else{
