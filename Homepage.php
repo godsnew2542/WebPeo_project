@@ -72,7 +72,7 @@
         <div class="row"><!---row Homepage--->
           <div class="col-md-3"></div>
           <div class="col-md-5"><!---center---><br>
-            <center><h2><i class="fas fa-plane"></i>Flight</h2><center>
+            <center><h2><i class="fas fa-plane"></i>Flight</h2></center>
           </div><!---close center--->
           <div class="col-md-4"></div>
         </div><!---close row Homepage--->
@@ -121,7 +121,7 @@
         <br><br>
        <label for="class">Class</label>
       <select name="class" class="custom-select custom-select-md mb-3">
-        <option value="" selected>-------</option>
+        <option value="0" selected>-------</option>
         <option value="economy">Economy</option>
         <option value="business">Business</option>
       </select>
