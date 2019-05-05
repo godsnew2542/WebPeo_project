@@ -81,7 +81,7 @@
                     }else{
                         while($row = mysqli_fetch_assoc($result)){
                             echo '<form method="post" name="frmUpdate'.$row['RID'].'" action="HistoryUpdate2.php">';
-                            echo '<table>';
+                            echo '<br><table>';
                             echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
                             echo '<td>&nbsp'.'<input type="text" name="RFname" value="'.$row['RFname'].'">'.'&nbsp</td></tr>';
                             echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
@@ -113,9 +113,9 @@
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                     </select>&nbsp&nbsp&nbsp(3-14 ปี)'.'&nbsp</td></tr>';
-                            echo '<td>';
-                            echo '<input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
-                            echo '<input name="smtUpdate'.$row['RID'].'" class="btn btn-primary" type="submit" value="Update" onClick="return confirmUpdate();"></td>'."\n";
+                            echo '<td><input type="hidden" name="idu" value="'.$row['RID'].'">'."\n";
+                            echo '<br><input name="smtUpdate'.$row['RID'].'" class="btn btn-primary" type="submit" value="Update" onClick="return confirmUpdate();">
+                                  &nbsp&nbsp&nbsp<input name="Back" type="button" class="btn btn-primary" value=" Back"onClick="jascript:history.go(-1);"></td>';
                             echo '</table></form>';
                         }
                     }

@@ -95,7 +95,7 @@
             echo '<b>'.'Child'.'</b>&nbsp'.$row['teen_total'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
             echo '<b>'.'Date reserve'.'</b>&nbsp'. $row['Date_reserve'].'&nbsp&nbsp&nbsp';
             echo '<b>'.'Trv date'.'</b>&nbsp'.$row['Trv_date'].'<br><br>&nbsp&nbsp&nbsp&nbsp';
-            echo '</td></tr></table><br><br>';
+            echo '</td></tr></table><br>';
           }
         }
         echo '&nbsp&nbsp&nbsp<button class="btn btn-primary" onclick="myFunction()">Print this page</button>
