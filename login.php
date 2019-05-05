@@ -36,7 +36,7 @@
     if (isset($_POST['Login'])) {
         if ((empty($_POST['email'])) || (empty($_POST['pass']))) {
             ?>
-            <div class="text-center1">
+            <div class="text-center">
                 <h1>Email/password is incorrect</h1>
                 <br>Click here to <a href='login.php'>Login</a>
             </div>
