@@ -121,7 +121,7 @@
         <br><br>
        <label for="class">Class</label>
       <select name="class" class="custom-select custom-select-md mb-3">
-        <option value="" selected>-------</option>
+        <option value="0" selected>-------</option>
         <option value="economy">Economy</option>
         <option value="business">Business</option>
       </select>
