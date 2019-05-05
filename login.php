@@ -36,7 +36,7 @@
     if (isset($_POST['Login'])) {
         if ((empty($_POST['email'])) || (empty($_POST['pass']))) {
             ?>
-            <div class="text-center1">
+            <div class="text-center">
                 <h1>Email/password is incorrect</h1>
                 <br>Click here to <a href='login.php'>Login</a>
             </div>
@@ -51,7 +51,7 @@
             header("location:Homepage.php");
         } else {
             ?>
-                <div class="text-center1">
+                <div class="text-center">
                     <h1>Email/password is incorrect</h1>
                     <br>Click here to <a href='login.php'>Login</a>
                 </div>
@@ -66,17 +66,17 @@
                 <div class="col-md-4">
                     <br><br><br>
                     <h1 class="text-center text-primary">
-                         <b>Login To<br> 
-                         <i class="fas fa-plane-departure"></i> Airplane Modelling</b> </h1>
+                        <b>Login To<br>
+                            <i class="fas fa-plane-departure"></i> Airplane Modelling</b> </h1>
                     <br><br><br>
-                    
+
                     <label for="email">E-mail:</label>
                     <input type="email" name="email" id="email" class="form-control col-sm-8" placeholder="EMAIL" required> <br>
                     <label for="password">Password:</label>
                     <input type="password" name="pass" id="password" class="form-control col-sm-8" placeholder="PASSWORD" required> <br>
                     <input type="submit" name="Login" class="btn btn-primary" value="LOGIN" onclick="return check1();"> <br> <br>
                     Don't have an account? <a href="register.php">Sign up now.</a>
-                    
+
                 </div>
                 <div class="col-md-4"> </div>
             </div>
@@ -86,5 +86,6 @@
 mysqli_close($connect); ?>
 </body>
 <!---Button BacktoTop--->
-<a style="display:scroll;position:fixed;bottom:5px;right:5px;" class="backtotop" href="#" rel="nofollow" title="Back to Top"><img style="border:0;" src="http://2.bp.blogspot.com/-fBSW--O5-eA/UIao-OcGSCI/AAAAAAAAEI8/-GomJZ4SCm4/s1600/uptop2.png"/></a>
+<a style="display:scroll;position:fixed;bottom:5px;right:5px;" class="backtotop" href="#" rel="nofollow" title="Back to Top"><img style="border:0;" src="http://2.bp.blogspot.com/-fBSW--O5-eA/UIao-OcGSCI/AAAAAAAAEI8/-GomJZ4SCm4/s1600/uptop2.png" /></a>
+
 </html>
