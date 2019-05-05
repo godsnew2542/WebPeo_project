@@ -5,6 +5,8 @@
   <!---Required meta tags--->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!---รูป--->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!---Bootstrap CSS--->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -61,48 +63,46 @@
     <div class="row"><!---ROW--->
       <div class="col-md-3"></div>
       <div class="col-md-6"><!---center--->
-      <div class="row"><!---row History--->
-        <div class="col-md-4"></div>
-        <div class="col-md-4"><!---center--->
-        <h1>History</h1>
-        </div><!---close center--->
-        <div class="col-md-4"></div>
-      </div><!---close row History--->
       <div class="row"><!---row ReDetail--->
-        <div class="col-md-3"></div>
-        <div class="col-md-9">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
         <?php
-        $sql = 'select * from reserve_flight where RID = '.$_POST['idp'].';';
+        $sql = 'select * from reserve_flight 
+        INNER JOIN flight ON reserve_flight.FlightNo = flight.FlightNo 
+        INNER JOIN user ON reserve_flight.User_ID = user.User_ID 
+        where RID = '.$_POST['idp'].';';
         $result = mysqli_query($connect, $sql);
         if (!$result) {
           echo mysql_error().'<br>';
           die('Can not access database!');
         } else {
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<table  border="1">';
-            echo '<tr><td><b>&nbsp'.'FirstName'.'&nbsp</b></td>';
-            echo '<td>&nbsp'. $row['RFname'] .'&nbsp</td></tr>';
-            echo '<tr><td><b>&nbsp'.'LastName'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['RLname'].'&nbsp</td></tr>';
-            echo '<tr><td><b>&nbsp'.'Class'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['Class'].'&nbsp</td></tr>';
-            echo '<tr><td><b>&nbsp'.'Price'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['Price'].'&nbsp</td></tr>';
-            echo '<tr><td><b>&nbsp'.'Date reserve'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['Date_reserve'].'&nbsp</td></tr>';
-            echo '<tr><td><b>&nbsp'.'Trv date'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['Trv_date'].'&nbsp</td></tr>';
-            echo '<tr><td><b>&nbsp'.'Adult'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['adult_total'].'&nbsp</td></tr>';
-            echo '<tr><td><b>&nbsp'.'Child'.'&nbsp</b></td>';
-            echo '<td>&nbsp'.$row['teen_total'].'&nbsp</td></tr>';
-            echo '</table>';
+            echo '<br><br><table border="3" bordercolor="blue"><tr><td class="bg-primary"><br>';
+            echo '<center>&nbsp&nbsp&nbsp<font size="23" class="text text-white"><b> 
+                  <i class="fas fa-plane-departure"></i> 
+                  Airplane Modelling</b></font>&nbsp&nbsp&nbsp</center>';
+            echo '<br></td></tr><tr><td><br><br>';
+            echo '&nbsp&nbsp&nbsp&nbsp<b>'.'Email'.'</b>&nbsp'. $row['Email'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'Telephone'.'</b>&nbsp'.$row['Telephone'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
+            echo '<b>'.'No'.'</b>&nbsp'.$row['FlightNo'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'From'.'</b>&nbsp'.$row['FlightFrom'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'To'.'</b>&nbsp'.$row['FlightTo'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
+            echo '<b>'.'FirstName'.'</b>&nbsp'.$row['RFname'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'LastName'.'</b>&nbsp'.$row['RLname'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
+            echo '<b>'.'Class'.'</b>&nbsp'.$row['Class'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'Price'.'</b>&nbsp'.$row['Price'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
+            echo '<b>'.'Adult'.'</b>&nbsp'.$row['adult_total'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'Child'.'</b>&nbsp'.$row['teen_total'].'&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp';
+            echo '<b>'.'Date reserve'.'</b>&nbsp'. $row['Date_reserve'].'&nbsp&nbsp&nbsp';
+            echo '<b>'.'Trv date'.'</b>&nbsp'.$row['Trv_date'].'<br><br>&nbsp&nbsp&nbsp&nbsp';
+            echo '</td></tr></table><br><br>';
           }
-          echo '<br>&nbsp&nbsp&nbsp<button class="btn btn-primary" onclick="myFunction()">Print this page</button>
-                &nbsp&nbsp&nbsp<input name="Back" type="button" class="btn btn-primary" value=" Back"onClick="jascript:history.go(-1);">';
-        }?>
-        </div></div><!---close row ReDetail---></div><!---close center--->
-      <div class="col-md-3"></div>
+        }
+        echo '&nbsp&nbsp&nbsp<button class="btn btn-primary" onclick="myFunction()">Print this page</button>
+              &nbsp&nbsp&nbsp<input name="Back" type="button" class="btn btn-primary" value=" Back"onClick="jascript:history.go(-1);">';
+        ?>
+        </div><div class="col-md-3"></div></div><!---close row ReDetail---></div><!---close center--->
+      <div class="col-md-1"></div>
     </div><!---close ROW--->
   <?php
   } else {
