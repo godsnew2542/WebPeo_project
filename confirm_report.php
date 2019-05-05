@@ -331,7 +331,7 @@
 <br><br>
 <div class="col-6">
 <div class="row">
-<div class="col-2"><button class="btn btn-primary">confirm</button></form>
+<div class="col-2"><button class="btn btn-primary">Confirm</button></form>
 <form method="post" action="Homepage.php"></div>
 <div class="col-2"><button class="btn btn-primary" onclick="">Cancel</button></div></div></div>
 </form>
