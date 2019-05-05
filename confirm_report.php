@@ -309,10 +309,7 @@
           echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
         } else{$price += $_POST['child']*0;
         }
-          echo '<td>'.$price.'</td>'.'</tr>';
-          
-          
-          
+          echo '<td>'.$price.'</td>'.'</tr>'; 
          }
         }
         echo '</table>'.'</div>';
