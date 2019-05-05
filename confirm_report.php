@@ -33,10 +33,42 @@
         height: 100%; 
         width: 0; 
         overflow-x: hidden; 
-    }   
-  </style>
-</head>
+    }  
+    .container{
+      margin:auto;
+      text-align: left;
+      border:5px solid DodgerBlue ;
+      font-size:20px;
+      
+    } 
+    .airplane{
+      text-align: left;
+      color:white;
+      position: relative;
+      top: 2px;
+      border-bottom-style:solid;
+      border-color:DodgerBlue;
+    }
+    table, td, th {
+      border: 1px solid black;
+    }
 
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+
+    td {
+      height: 50px;
+      vertical-align: bottom;
+      text-align: center;
+    }
+
+    button{
+      float: none;
+    }
+  </style>
 <?php
     require('db.php');
     session_start();
@@ -63,20 +95,22 @@
         </div>
       </div><!---close navbar link--->
     </div><!---close navbar--->
-
-
+<br>
+    <div class="container">
     <form method="post" action="add_reserve_flight.php">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous">
 
-
+<br><div class="airplane">
 <a class="fas fa-plane-departure fas fa-2x" href="#"> Airplane Modelling</a></i><br>
-    <h2></h2><br>
-</div>
+    <br></div>
 
+<div>
+</head>
+<body><br>
 <?php
-
+    
     define("Bthank", "Thank you for choosing Airplane!!!");
     define("Bdetail", "YOUR BOOKING DETAILS");
     define("Bdate", "Booking Date : ");
@@ -87,19 +121,22 @@
    
 
     function details(){
+        
+        echo '<div class="row">';
+        echo '<div class="col">';
 
-        echo '<div>'.'<b>'.'Dear Khun '.$_POST['RFname'];
-        echo '<input type="hidden" name="RFname" value="'.$_POST['RFname'].'">'.','.'</b>';
-        echo '<p>'.Bthank.'</p>'.'</div>';
+        echo '<div class="col-12">';
+        echo '<p>'.'<b>'.'Dear Khun '.$_POST['RFname'].','.'</b>'.'</p>';
+        echo '<input type="hidden" name="RFname" value="'.$_POST['RFname'].'">';
+        echo '<p>'.Bthank.'</p>'.''.'</div>'.'</div>'.'</div>'.'</div>'.'<br>';
 
         echo '<div class="row">';
         echo '<div class="col">';
 
-        echo '<p>'.'<b>'.Bdetail.'</b>'.'</p>';
         echo '<div class="col-12">';
-        echo '<div class="col-sm-12>';
+        echo '<p>'.'<b>'.Bdetail.'</b>'.'</p>';
 
-        echo '<div class="col-sm-6">'.Bdate;
+        echo '<div class="col-sm-12">'.Bdate;
         echo  date('Y-m-d').'</div>';    //วันที่ออกเดินทาง
         
 
@@ -108,9 +145,7 @@
         echo '<input type="hidden" name="RLname" value="'.$_POST['RLname'].'">'.'</div>';//ชื่อผู้เดินทาง
         echo '</div>';
         echo '</div>';
-        echo '</div>';
-        echo '</div>';
-        
+        echo '</div>'.'<br>';
     }
 
     function itinerary(){
@@ -122,19 +157,20 @@
         if(!$result){
             echo mysqli_error().'<br>';
         }else{
-            
-    
+        echo '<div>';
+        echo '<div class="row">';
+        echo '<div class="col">'; 
+        echo '<div class="col-sm-12">';
         echo '<p>'.'<b>'.travel.'</b>'.'</p>';
         echo '<table border="1" cellpading="0" cellspacing="0">';
-        echo '<tr>'.'<td>'.'Date'.'</td>';//วันที่เดินทาง
-        
-        echo '<td>'.'Flight No'.'</td>';
-        echo '<td>'.'AID'.'</td>';
-        echo '<td>'.'Type'.'</td>';
-        echo '<td>'.'Class'.'</td>';
-        echo '<td>'.'Departing'.'</td>';
-        echo '<td>'.'Arriving'.'</td>';
-        echo '<td>'.'Price'.'</td>'.'</tr>';
+        echo '<tr>'.'<th>'.'Date'.'</th>';//วันที่เดินทาง
+        echo '<th>'.'Flight No'.'</th>';
+        echo '<th>'.'AID'.'</th>';
+        echo '<th>'.'Type'.'</th>';
+        echo '<th>'.'Class'.'</th>';
+        echo '<th>'.'Departing'.'</th>';
+        echo '<th>'.'Arriving'.'</th>';
+        echo '<th>'.'Price'.'</th>'.'</tr>';
 
         if($_SESSION['class'] == "economy"){
 
@@ -205,9 +241,6 @@
             echo '<input type="hidden" name="price" value="'.$price.'">';
             echo '<input type="hidden" name="child" value="'.$_POST['child'].'">';
           }
-
-
-
             echo '<td>'.$price.'</td>'.'</tr>';
               
             
@@ -282,7 +315,7 @@
           
          }
         }
-        echo '</table>';
+        echo '</table>'.'</div>';
     
         }
         mysqli_close($connect);
@@ -292,16 +325,20 @@
 
    echo details();
    echo itinerary();
-
+   
 
 ?>
 
-<br>
-<button>confirm</button></form>
-<form method="post" action="Homepage.php">
-<button onclick="">Cancel</button>
-</form>
 
+</div></div>
+<br><br>
+<div class="col-6">
+<div class="row">
+<div class="col-2"><button class="btn btn-primary">confirm</button></form>
+<form method="post" action="Homepage.php"></div>
+<div class="col-2"><button class="btn btn-primary" onclick="">Cancel</button></div></div></div>
+</form>
+</div></div></div></div>
 
     <?php
   }else {
@@ -311,5 +348,5 @@
     
 <!---Button BacktoTop--->
 <a style="display:scroll;position:fixed;bottom:5px;right:5px;" class="backtotop" href="#" rel="nofollow" title="Back to Top"><img style="border:0;" src="http://2.bp.blogspot.com/-fBSW--O5-eA/UIao-OcGSCI/AAAAAAAAEI8/-GomJZ4SCm4/s1600/uptop2.png"/></a>
-
+</body>
 </html>
