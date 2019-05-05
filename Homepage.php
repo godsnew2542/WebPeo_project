@@ -72,7 +72,7 @@
         <div class="row"><!---row Homepage--->
           <div class="col-md-3"></div>
           <div class="col-md-5"><!---center---><br>
-            <center><h2><i class="fas fa-plane"></i>Flight</h2><center>
+            <center><font class="text text-primary"><h2><i class="fas fa-plane"></i>Flight</h2></font><center>
           </div><!---close center--->
           <div class="col-md-4"></div>
         </div><!---close row Homepage--->
