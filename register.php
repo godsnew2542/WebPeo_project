@@ -20,22 +20,22 @@
     <script language="javascript">
         function check() {
             if (document.registration.FName.value == "") {
-                alert('Your name are empty.');
+                alert('Your name is empty.');
                 return false;
             } else if (document.registration.LName.value == "") {
-                alert('Your lastname are empty. ');
+                alert('Your lastname is empty. ');
                 return false;
             } else if (document.registration.email.value == "" && email == type("email")) {
-                alert('Your E-mail are empty. ');
+                alert('Your E-mail is empty. ');
                 return false;
             } else if (document.registration.password.value == "") {
-                alert('Your Password are empty.'); //มีความยาวอย่าน้อง 5ตัวขึ้นไป 
+                alert('Your Password is empty.'); //มีความยาวอย่าน้อง 5ตัวขึ้นไป 
                 return false;
             } else if (document.registration.phone.value == "" && phone == pattern("(\d{10})")) {
-                alert('Your Phone are empty.');
+                alert('Your Phone is empty.');
                 return false;
             } else if (document.registration.card.value == "" && caed == pattern("(\d{1})-(\d{4})-(\d{5})-(\d{2})-(\d{1})")) {
-                alert('Your personal id are empty.  ');
+                alert('Your personal id is empty.  ');
                 return false;
             }
             if (!(document.registration.FName.value == "" &&
@@ -87,14 +87,6 @@
             <div class="text-center fond">
                 <b>You are registered successfully.</b>
                 <br />Click here to <a href='login.php'>Login.</a>
-            </div>
-        <?php
-    } else { //มีข้อผิดพลาดในข้อมูลที่คุณป้อน //กรุณาตรวจสอบข้อมูลให้ถูกต้อง
-        ?>
-            <div class="text-center fond">
-                <b>There was an error in the data that you entered.</b>
-                <br> <b>Please check the information correctly.</b>
-                <br>Click here to <a href='register.php'>Register.</a>
             </div>
         <?php
     }

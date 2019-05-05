@@ -55,14 +55,20 @@
             die('Can not access database!');
             
         }else if(mysqli_num_rows($result) == 0){
-
-            echo 'No Flight Needed';
-            echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
-
+            ?>
+            <div class="text-center">
+                <h1>No Flight Needed</h1>
+                <br>Click here to <a href='Homepage.php'>Homepage</a>
+            </div>
+        <?php
         } else {
             if($_POST['class'] == "0"){
-                echo "Please select class <br>";
-                echo "<br>Click here to <a href='Homepage.php'>Homepage</a>";
+                ?>
+                <div class="text-center">
+                    <h1>Please select class</h1>
+                    <br>Click here to <a href='Homepage.php'>Homepage</a>
+                </div>
+            <?php
             }
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<form action="insert_information.php" name="insertfrm'.$row['FlightNo'].'" method="post">';

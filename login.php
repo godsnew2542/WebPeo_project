@@ -51,7 +51,7 @@
             header("location:Homepage.php");
         } else {
             ?>
-                <div class="text-center1">
+                <div class="text-center">
                     <h1>Email/password is incorrect</h1>
                     <br>Click here to <a href='login.php'>Login</a>
                 </div>
